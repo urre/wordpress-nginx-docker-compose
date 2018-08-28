@@ -13,19 +13,27 @@ Simple Docker Compose setup for running WordPress
 
 ### Create SSL cert
 
-  cd cli && ./create-cert.sh
+```shell
+cd cli && ./create-cert.sh
+```
 
 ### Trust cert in macOS Keychain
 
-  cd cli && ./trust-cert.sh
+```shell
+cd cli && ./trust-cert.sh
+```
 
 ### Setup vhost in /etc/hosts
 
-  cd cli && ./setup-hosts-file.sh
+```shell
+cd cli && ./setup-hosts-file.sh
+```
 
 ## Run
 
-  docker-compose up -d
+```shell
+docker-compose up -d
+```
 
 ### Tools
 
@@ -33,34 +41,48 @@ Simple Docker Compose setup for running WordPress
 
 Use composer like this:
 
+```shell
   docker-compose run composer show
   docker-compose run composer update
   docker-compose run composer create-project roots/bedrock .
+  ...
+```
 
 #### Useful Docker Commands
 
 List containers
 
-	docker-compose ps
+```shell
+docker-compose ps
+```
 
 Stop
 
-	docker-compose stop
+```shell
+docker-compose stop
+```
 
 Down (stop and remove)
 
-	docker-compose down
+```shell
+docker-compose down
+```
 
 Cleanup
 
-  docker-compose rm -v
-
-	docker-compose up -d --force-recreate
+```shell
+docker-compose rm -v
+docker-compose up -d --force-recreate
+```
 
 List all containers
 
-	docker ps
+```shell
+docker ps
+```
 
 List all images
 
-	docker image ls
+```shell
+docker image ls
+```
