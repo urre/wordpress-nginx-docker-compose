@@ -82,8 +82,9 @@ Cleanup
 
 ```shell
 docker-compose rm -v
-docker-compose up -d --force-recreate
 ```
+
+> Recreate using `docker-compose up -d --force-recreate`
 
 List all containers
 
