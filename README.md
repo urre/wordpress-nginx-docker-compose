@@ -35,6 +35,8 @@ cd cli && ./setup-hosts-file.sh
 docker-compose up -d
 ```
 
+> Note: Use your own local domain in `./nginx/wordpress_ssl.conf` and in `./src/env`.
+
 ### Tools
 
 #### Composer
