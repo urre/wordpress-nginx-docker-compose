@@ -50,7 +50,7 @@ Use composer like this:
   ...
 ```
 
-##### Bedrock (optional)
+#### Bedrock (optional)
 
 Use [Roots Bedrock](https://github.com/roots/bedrock).
 
