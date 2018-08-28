@@ -52,12 +52,10 @@ Use composer like this:
 
 #### Bedrock (optional)
 
-Use [Roots Bedrock](https://github.com/roots/bedrock).
-
-Bedrock is a WordPress boilerplate with modern development tools, easier configuration, and an improved folder structure
+[Bedrock](https://github.com/roots/bedrock) is a WordPress boilerplate with modern development tools, easier configuration, and an improved folder structure.
 
 1. Create a Bedrock project in `src`: `docker-compose run composer create-project roots/bedrock .`
-2. Change web root to `root /var/www/html/web;`
+2. Change web root in `./nginx/wordpress_ssl.conf` to `root /var/www/html/web;`
 
 
 #### Useful Docker Commands
