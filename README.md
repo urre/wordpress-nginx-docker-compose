@@ -7,7 +7,6 @@ Docker Compose setup for running WordPress
 + Use a local domain ex `myapp.local`
 + Using a custom nginx config in `./nginx`
 + Using a self signed SSL certificate for using https locally
-+ Using Roots Bedrock for WordPress project structure in this example (optional)
 
 ## Setup
 
@@ -36,6 +35,7 @@ docker-compose up -d
 ```
 
 > Note: Use your own local domain in `./nginx/wordpress_ssl.conf` and in `./src/env`.
+> A standard WordPress setup wil be installed in `./src`.
 
 ### Tools
 
@@ -49,6 +49,16 @@ Use composer like this:
   docker-compose run composer create-project roots/bedrock .
   ...
 ```
+
+##### Bedrock (optional)
+
+Use [Roots Bedrock](https://github.com/roots/bedrock).
+
+Bedrock is a WordPress boilerplate with modern development tools, easier configuration, and an improved folder structure
+
+1. Create a Bedrock project in `src`: `docker-compose run composer create-project roots/bedrock .`
+2. Change web root to `root /var/www/html/web;`
+
 
 #### Useful Docker Commands
 
