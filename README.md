@@ -1,13 +1,13 @@
 
 # Docker Compose and WordPress
 
-Simple Docker Compose setup for running WordPress
+Docker Compose setup for running WordPress
 
 + [Docker compose](https://docs.docker.com/compose/)
 + Use a local domain ex `myapp.local`
-+ Custom nginx confif
++ Using a custom nginx config in `./nginx`
 + Using a self signed SSL certificate for using https locally
-+ Using Roots Bedrock in this example (optional)
++ Using Roots Bedrock for WordPress project structure in this example (optional)
 
 ## Setup
 
