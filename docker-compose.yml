@@ -20,20 +20,16 @@ services:
     container_name: myapp-mysql
     environment:
       - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=myapp
     restart: always
     ports:
       - '3306:3306'
 
   wordpress:
-    image: wordpress:php7.2-fpm
+    image: cytopia/php-fpm-7.2
     container_name: myapp-wordpress
     volumes:
       - ./src:/var/www/html
-    environment:
-      - WORDPRESS_DB_NAME=wordpress
-      - WORDPRESS_TABLE_PREFIX=wp_
-      - WORDPRESS_DB_HOST=mysql
-      - WORDPRESS_DB_PASSWORD=password
     depends_on:
       - mysql
     restart: always
