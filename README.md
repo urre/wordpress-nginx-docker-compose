@@ -37,6 +37,8 @@ docker-compose up -d
 > Note: Use your own local domain in `./nginx/wordpress_ssl.conf` and in `./src/env`.
 > A standard WordPress setup wil be installed in `./src`.
 
+> Copy `.env-example` to `.env` and update your credentials
+
 ### Tools
 
 #### Composer

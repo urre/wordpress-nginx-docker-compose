@@ -23,8 +23,6 @@ openssl req \
     -sha256 \
     -days 3650
 
-mkdir ../certs
-
 mv *.crt ../certs
 mv *.key ../certs
 
