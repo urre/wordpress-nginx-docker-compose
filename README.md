@@ -34,10 +34,9 @@ cd cli && ./setup-hosts-file.sh
 docker-compose up -d
 ```
 
-> Note: Use your own local domain in `./nginx/wordpress_ssl.conf` and in `./src/env`.
-> A standard WordPress setup wil be installed in `./src`.
+🚀 Open up [https://myapp.local](https://myapp.local)
 
-> Copy `.env-example` to `.env` and update your credentials
+> Notes: Copy `.env-example` to `.env` and update your credentials. Use your own local domain in `./nginx/wordpress_ssl.conf` and in `./src/env`.
 
 ### Tools
 
@@ -52,13 +51,7 @@ Use composer like this:
   ...
 ```
 
-#### Bedrock (optional)
-
-[Bedrock](https://github.com/roots/bedrock) is a WordPress boilerplate with modern development tools, easier configuration, and an improved folder structure.
-
-1. Create a Bedrock project in `src`: `docker-compose run composer create-project roots/bedrock .`
-2. Change web root in `./nginx/wordpress_ssl.conf` to `root /var/www/html/web;`
-
+> Notes: this project uses [Bedrock](https://github.com/roots/bedrock) is a WordPress boilerplate with modern development tools, easier configuration, and an improved folder structure. The wbb root in `./nginx/wordpress_ssl.conf` is `root /var/www/html/web;`
 
 #### Useful Docker Commands
 
