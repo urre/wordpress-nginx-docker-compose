@@ -8,8 +8,7 @@ services:
       - '443:443'
     volumes:
       - ./nginx:/etc/nginx/conf.d
-      - ./logs/nginx:/var/log/nginx
-      - ./src:/var/www/html
+      - ./src:/var/www/html:rw,cached
       - ./certs:/etc/certs
     depends_on:
       - wordpress
@@ -20,16 +19,21 @@ services:
     container_name: myapp-mysql
     environment:
       - MYSQL_ROOT_PASSWORD=password
-      - MYSQL_DATABASE=myapp
+      - MYSQL_DATABASAE=myapp
     restart: always
     ports:
       - '3306:3306'
 
   wordpress:
-    image: cytopia/php-fpm-7.2
+    image: wordpress:php7.2-fpm
     container_name: myapp-wordpress
     volumes:
-      - ./src:/var/www/html
+      - ./src:/var/www/html:rw,cached
+    environment:
+      - WORDPRESS_DB_NAME=myapp
+      - WORDPRESS_TABLE_PREFIX=wp_
+      - WORDPRESS_DB_HOST=mysql
+      - WORDPRESS_DB_PASSWORD=password
     depends_on:
       - mysql
     restart: always
@@ -40,4 +44,4 @@ services:
     working_dir: /var/www/html
     restart: 'no'
     volumes:
-      - ./src:/var/www/html
+      - ./src:/var/www/html:rw,cached
