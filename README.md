@@ -1,10 +1,9 @@
 
 # Docker Compose and WordPress
 
-Docker Compose setup for running WordPress
+[Docker compose](https://docs.docker.com/compose/) setup for running WordPress
 
-+ [Docker compose](https://docs.docker.com/compose/)
-+ Use a local domain ex `myapp.local`
++ Using a local domain ex `myapp.local`
 + Using a custom nginx config in `./nginx`
 + Using a self signed SSL certificate for using https locally
 
@@ -16,7 +15,7 @@ Docker Compose setup for running WordPress
 cd cli && ./create-cert.sh
 ```
 
-### Trust cert in macOS Keychain
+### Trust cert in macOS Keychain. (Chrome and Safari will trust the certs, for Firefox: add them in preferences)
 
 ```shell
 cd cli && ./trust-cert.sh
@@ -28,11 +27,15 @@ cd cli && ./trust-cert.sh
 cd cli && ./setup-hosts-file.sh
 ```
 
+> Follow the instructions. Use `myapp.local`
+
 ## Run
 
 ```shell
 docker-compose up -d
 ```
+
+> Note: Use `docker-compose up -d --force-recreate --build` when you make changes to the `Dockerfile`
 
 🚀 Open up [https://myapp.local](https://myapp.local)
 

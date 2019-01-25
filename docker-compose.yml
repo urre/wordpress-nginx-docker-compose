@@ -25,10 +25,13 @@ services:
       - '3306:3306'
 
   wordpress:
-    image: wordpress:php7.2-fpm
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: myapp-wordpress
     volumes:
       - ./src:/var/www/html:rw,cached
+      - ./config/php.ini:/usr/local/etc/php/conf.d/php.ini
     environment:
       - WORDPRESS_DB_NAME=myapp
       - WORDPRESS_TABLE_PREFIX=wp_
