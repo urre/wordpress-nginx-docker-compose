@@ -48,6 +48,7 @@ src/wp-admin
 src/wp-blog-header.php
 src/wp-comments-post.php
 src/wp-config-sample.php
+src/wp-config.php
 src/wp-content
 src/wp-cron.php
 src/wp-includes
