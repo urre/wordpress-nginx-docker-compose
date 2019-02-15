@@ -29,6 +29,7 @@ cd cli && ./trust-cert.sh
 ```shell
 cd cli && ./setup-hosts-file.sh
 ```
+> Follow the instructions. Use `myapp.local`
 
 ### Setup ENV
 
@@ -37,7 +38,23 @@ cd src
 cp .env-example .env
 ```
 
-> Follow the instructions. Use `myapp.local`
+> Use the following:
+
+```yml
+DB_HOST=mysql:3306
+DB_NAME=myapp
+DB_USER=root
+DB_PASSWORD=password
+```
+
+## Install WordPress and Composer dependencies
+
+```shell
+cd src
+composer install
+```
+
+> You can also use composer like this: `docker-compose run composer update`
 
 ## Run
 
@@ -49,22 +66,23 @@ docker-compose up -d
 
 🚀 Open up [https://myapp.local](https://myapp.local)
 
-> Notes: Copy `.env-example` to `.env` and update your credentials. Use your own local domain in `./nginx/wordpress_ssl.conf` and in `./src/env`.
+> To specify your local domain, change in`./nginx/wordpress_ssl.conf` and in `./src/env`. Also change in the scripts in the `cli` folder
 
 ### Tools
 
-#### Composer
-
-Use composer like this:
+Login to the docker container
 
 ```shell
-  docker-compose run composer show
-  docker-compose run composer update
-  docker-compose run composer create-project roots/bedrock .
-  ...
+docker exec -it myapp-wordpress bash
 ```
 
-> Notes: this project uses [Bedrock](https://github.com/roots/bedrock) is a WordPress boilerplate with modern development tools, easier configuration, and an improved folder structure. The wbb root in `./nginx/wordpress_ssl.conf` is `root /var/www/html/web;`
+Ex. Use wp-cli
+
+```
+docker exec -it myapp-wordpress bash
+wp plugin install wordpress-seo --allow-root
+```
+
 
 #### Useful Docker Commands
 
