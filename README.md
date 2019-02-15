@@ -38,7 +38,7 @@ cd src
 cp .env-example .env
 ```
 
-> Use the following:
+> Use the following db settings:
 
 ```yml
 DB_HOST=mysql:3306
