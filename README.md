@@ -86,14 +86,7 @@ docker exec -it myapp-wordpress bash
 wp plugin install wordpress-seo --allow-root
 ```
 
-
 #### Useful Docker Commands
-
-List containers
-
-```shell
-docker-compose ps
-```
 
 Stop
 
@@ -113,16 +106,14 @@ Cleanup
 docker-compose rm -v
 ```
 
-> Recreate using `docker-compose up -d --force-recreate`
-
-List all containers
+Recreate
 
 ```shell
-docker ps
+docker-compose up -d --force-recreate
 ```
 
-List all images
+Rebuild docker container when Dockerfile has changed
 
 ```shell
-docker image ls
+docker-compose up -d --force-recreate --build
 ```
