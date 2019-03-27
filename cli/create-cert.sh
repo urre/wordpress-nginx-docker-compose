@@ -23,7 +23,9 @@ openssl req \
     -sha256 \
     -days 3650
 
-mv *.crt ../certs
-mv *.key ../certs
+mkdir ../certs
+
+mv *.crt ../certs/
+mv *.key ../certs/
 
 echo  -e ${GREEN}"Cert created in /cert! ${NC}";
