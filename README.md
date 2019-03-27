@@ -38,7 +38,7 @@ cd cli && ./setup-hosts-file.sh
 
 ```shell
 cd src
-cp .env-example .env
+cp .env.example .env
 ```
 
 > Use the following db settings:
