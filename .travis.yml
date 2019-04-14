@@ -6,7 +6,7 @@ php:
 
 before_script:
   - cd src
-  - composer install src --prefer-source --no-interaction --dev
+  - composer install --prefer-source --no-interaction --dev
 
 script:
   -
