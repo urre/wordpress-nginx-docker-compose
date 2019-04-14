@@ -1,9 +1,12 @@
 language: php
 php:
-  - 7.0
+    - '7.0'
+    - '7.1'
+    - '7.2'
 
 before_script:
-  - composer install -d src --prefer-source --no-interaction --dev
+  - cd src
+  - composer install src --prefer-source --no-interaction --dev
 
 script:
   -
