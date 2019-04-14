@@ -1,13 +1,14 @@
 
 # Docker Compose and WordPress
 
-[Docker compose](https://docs.docker.com/compose/) setup for running WordPress
+Use WordPress with Docker using [Docker compose](https://docs.docker.com/compose/)
 
 + [Bedrock](https://roots.io/bedrock/) - modern development tools, easier configuration, and an improved folder structure
-+ [Docker](https://www.docker.com/get-started) and [Docker compose](https://docs.docker.com/compose/overview/)
 + Dockerfile for extending a base image and install wp-cli
-+ Local domain ex `myapp.local` and using a self signed SSL certificate for using https locally
++ Local domain ex `myapp.local`
 + Custom nginx config in `./nginx`
++ Custom `php.ini` config in `./config`
++ CLI scripts for creating a self signed SSL certificate for using https locally, trusting certs and seting up the host file
 
 ## Setup
 
