@@ -1,3 +1,7 @@
 language: php
 php:
   - 7.2
+
+before_script:
+  - composer self-update
+  - composer install -d src --prefer-source --no-interaction --dev
