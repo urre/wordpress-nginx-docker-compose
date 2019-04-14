@@ -1,6 +1,8 @@
 
 # Docker Compose and WordPress
 
+[![Build Status](https://travis-ci.org/urre/wordpress-nginx-docker-compose.svg?branch=master)](https://travis-ci.org/urre/wordpress-nginx-docker-compose)
+
 Use WordPress with Docker using [Docker compose](https://docs.docker.com/compose/)
 
 + [Bedrock](https://roots.io/bedrock/) - modern development tools, easier configuration, and an improved folder structure
