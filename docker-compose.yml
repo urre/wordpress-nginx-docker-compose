@@ -19,7 +19,7 @@ services:
     container_name: myapp-mysql
     environment:
       - MYSQL_ROOT_PASSWORD=password
-      - MYSQL_DATABASAE=myapp
+      - MYSQL_DATABASE=myapp
     restart: always
     ports:
       - '3306:3306'
