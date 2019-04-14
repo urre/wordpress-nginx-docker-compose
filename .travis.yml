@@ -5,3 +5,6 @@ php:
 before_script:
   - composer self-update
   - composer install -d src --prefer-source --no-interaction --dev
+
+script:
+  -
