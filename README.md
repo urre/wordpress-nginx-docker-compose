@@ -5,11 +5,12 @@
 
 Use WordPress with Docker using [Docker compose](https://docs.docker.com/compose/)
 
-+ [Bedrock](https://roots.io/bedrock/) - modern development tools, easier configuration, and an improved folder structure
-+ Dockerfile for extending a base image and install wp-cli
++ `Dockerfile` for extending a base image and install wp-cli
 + Local domain ex `myapp.local`
 + Custom nginx config in `./nginx`
 + Custom `php.ini` config in `./config`
++ Volumes for `nginx`, `wordpress` and `mariadb`
++ WordPress using [Bedrock](https://roots.io/bedrock/) - modern development tools, easier configuration, and an improved folder structure
 + CLI scripts for creating a self signed SSL certificate for using https locally, trusting certs and seting up the host file
 
 ## Setup

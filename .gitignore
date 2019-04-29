@@ -23,6 +23,9 @@ sql-dump-*.sql
 src/vendor/*
 !src/vendor/.gitkeep
 
+# Database volume
+data
+
 # Node Package Manager
 node_modules
 
@@ -39,7 +42,7 @@ bin
 # Custom
 .DS_Store
 
-# Exclude standard wordpress files downloaded from Docker.
+# Exclude standard wordpress files downloaded from Docker. We are using files from the Composer install (src/web/wp)
 src/index.php
 src/license.txt
 src/readme.html
