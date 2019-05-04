@@ -45,7 +45,7 @@ cd src
 cp .env.example .env
 ```
 
-> Use the following db settings:
+Use the following db settings:
 
 ```yml
 DB_HOST=mysql:3306
@@ -77,20 +77,20 @@ docker-compose up -d
 
 ### Tools
 
+Ex. Use wp-cli
+
+```
+docker exec -it myapp-wordpress bash
+wp search-replace https://olddomain.com https://newdomain.com --allow-root
+```
+
+#### Useful Docker Commands
+
 Login to the docker container
 
 ```shell
 docker exec -it myapp-wordpress bash
 ```
-
-Ex. Use wp-cli
-
-```
-docker exec -it myapp-wordpress bash
-wp plugin install wordpress-seo --allow-root
-```
-
-#### Useful Docker Commands
 
 Stop
 
