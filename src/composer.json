@@ -23,9 +23,10 @@
     "issues": "https://github.com/roots/bedrock/issues",
     "forum": "https://discourse.roots.io/category/bedrock"
   },
-  "config": {
-    "preferred-install": "dist"
-  },
+	"config": {
+		"preferred-install": "dist",
+		"secure-http": false
+	},
   "repositories": [
     {
       "type": "composer",
