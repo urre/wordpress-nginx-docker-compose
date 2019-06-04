@@ -80,7 +80,6 @@ docker-compose up -d
 
 > When making changes to the Dockerfile : Use `docker-compose up -d --force-recreate --build`.
 > To specify your local domain, change in`./nginx/wordpress_ssl.conf` and in `./src/env`. Also change in the scripts in the `cli` folder
-> Currently this downloads the standard WordPress files in `./src`. I'm ignoring these in `.gitignore`. But if you like you can use this setup without Bedrock.
 
 ### Tools
 
