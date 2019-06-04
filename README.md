@@ -43,7 +43,7 @@ cd cli && ./trust-cert.sh
 ```shell
 cd cli && ./setup-hosts-file.sh
 ```
-> Follow the instructions. Use `myapp.local`
+> Follow the instructions. For example use `myapp.local`
 
 ### Setup ENV
 
@@ -52,7 +52,7 @@ cd src
 cp .env.example .env
 ```
 
-Use the following db settings:
+Use the following database settings:
 
 ```yml
 DB_HOST=mysql:3306
@@ -82,11 +82,10 @@ docker-compose up -d
 ### Notes:
 
 > When making changes to the Dockerfile : Use `docker-compose up -d --force-recreate --build`.
-> To specify your local domain, change in`./nginx/wordpress_ssl.conf` and in `./src/env`. Also change in the scripts in the `cli` folder
 
 ### Tools
 
-Ex. Use wp-cli
+#### wp-cli
 
 ```
 docker exec -it myapp-wordpress bash
