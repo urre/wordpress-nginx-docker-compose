@@ -11,7 +11,7 @@ Use WordPress with Docker using [Docker compose](https://docs.docker.com/compose
 + Custom `php.ini` config in `./config`
 + Volumes for `nginx`, `wordpress` and `mariadb`
 + WordPress using [Bedrock](https://roots.io/bedrock/) - modern development tools, easier configuration, and an improved folder structure
-+ CLI scripts for creating a self signed SSL certificate for using https locally, trusting certs and seting up the host file
++ CLI scripts for creating a self signed SSL certificate for using https locally, trusting certs and setting up the host file
 
 ## Setup
 
@@ -25,11 +25,15 @@ Install [Docker](https://www.docker.com/get-started)
 cd cli && ./create-cert.sh
 ```
 
+> Edit the script to your your custom domain, this example uses myapp.local
+
 ### Trust cert in macOS Keychain. (Chrome and Safari will trust the certs, for Firefox: add them in preferences)
 
 ```shell
 cd cli && ./trust-cert.sh
 ```
+
+> Edit the script to your your custom domain, this example uses myapp.local
 
 ### Setup vhost in /etc/hosts
 
@@ -69,11 +73,14 @@ composer install
 docker-compose up -d
 ```
 
-> Note: Use `docker-compose up -d --force-recreate --build` when you make changes to the `Dockerfile`
-
 🚀 Open up [https://myapp.local](https://myapp.local)
 
+
+### Notes:
+
+> When making changes to the Dockerfile : Use `docker-compose up -d --force-recreate --build`.
 > To specify your local domain, change in`./nginx/wordpress_ssl.conf` and in `./src/env`. Also change in the scripts in the `cli` folder
+> Currently this downloads the standard WordPress files in `./src`. I'm ignoring these in `.gitignore`. But if you like you can use this setup without Bedrock.
 
 ### Tools
 
