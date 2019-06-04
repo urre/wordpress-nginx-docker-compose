@@ -41,25 +41,3 @@ bin
 
 # Custom
 .DS_Store
-
-# Exclude standard wordpress files downloaded from Docker. We are using files from the Composer install (src/web/wp)
-src/index.php
-src/license.txt
-src/readme.html
-src/wp-activate.php
-src/wp-admin
-src/wp-blog-header.php
-src/wp-comments-post.php
-src/wp-config-sample.php
-src/wp-config.php
-src/wp-content
-src/wp-cron.php
-src/wp-includes
-src/wp-links-opml.php
-src/wp-load.php
-src/wp-login.php
-src/wp-mail.php
-src/wp-settings.php
-src/wp-signup.php
-src/wp-trackback.php
-src/xmlrpc.php
