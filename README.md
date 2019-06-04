@@ -6,12 +6,15 @@
 Use WordPress with Docker using [Docker compose](https://docs.docker.com/compose/)
 
 + `Dockerfile` for extending a base image and install wp-cli
+	+ Using a custom [Docker image](https://github.com/urre/wordpress-nginx-docker-compose-image) with [automated build on Docker Hub](https://cloud.docker.com/repository/docker/urre/wordpress-nginx-docker-compose-image)
 + Local domain ex `myapp.local`
 + Custom nginx config in `./nginx`
 + Custom `php.ini` config in `./config`
 + Volumes for `nginx`, `wordpress` and `mariadb`
 + WordPress using [Bedrock](https://roots.io/bedrock/) - modern development tools, easier configuration, and an improved folder structure
-+ CLI scripts for creating a self signed SSL certificate for using https locally, trusting certs and setting up the host file
++ CLI scripts for creating a self signed SSL certificate for using https
++ CLI script for trusting certs in macOS System Keychain
++ CLI script for setting up an entry in your host file
 
 ## Setup
 
