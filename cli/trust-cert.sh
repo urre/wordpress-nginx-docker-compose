@@ -8,6 +8,12 @@ BLUE='\033[0;34m'
 YELLOW='\033[0;93m'
 NC='\033[0m'
 
-sudo security add-trusted-cert -d -r trustRoot -k "/Library/Keychains/System.keychain" "../certs/myapp.local.crt"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    sudo security add-trusted-cert -d -r trustRoot -k "/Library/Keychains/System.keychain" "../certs/myapp.local.crt"
+fi
 
-echo  -e ${GREEN}"The cert should now be trusted in macOS System Keychain. Trusted in Chrome and Safari. (Not Firefox since it's using its own keychain manager) ${NC}";
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    cp ../certs/* /usr/local/share/ca-certificates/
+    sudo update-ca-certificates
+fi
+echo -e ${GREEN}"The cert should now be trusted in macOS System Keychain. Trusted in Chrome and Safari. (Not Firefox since it's using its own keychain manager) ${NC}"
