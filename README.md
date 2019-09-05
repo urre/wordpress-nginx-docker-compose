@@ -26,7 +26,8 @@ Install [Docker](https://www.docker.com/get-started)
 ### Create SSL cert
 
 ```shell
-cd cli && ./create-cert.sh
+cd cli
+./create-cert.sh
 ```
 
 > Edit the script to your your custom domain, this example uses myapp.local
@@ -38,7 +39,8 @@ Chrome and Safari will trust the certs using this script.
 > In Firefox: Select Advanced, Select the Encryption tab, Click View Certificates. Navigate to where you stored the certificate and click Open, Click Import.
 
 ```shell
-cd cli && ./trust-cert.sh
+cd cli
+./trust-cert.sh
 ```
 
 > Edit the script to your your custom domain, this example uses myapp.local
@@ -46,7 +48,8 @@ cd cli && ./trust-cert.sh
 ### Setup vhost in /etc/hosts
 
 ```shell
-cd cli && ./setup-hosts-file.sh
+cd cli
+./setup-hosts-file.sh
 ```
 > Follow the instructions. For example use `myapp.local`
 
@@ -100,6 +103,8 @@ docker-compose up -d --force-recreate --build
 docker exec -it myapp-wordpress bash
 wp search-replace https://olddomain.com https://newdomain.com --allow-root
 ```
+
+> You can use this command first after you've installed WordPress using Composer as the example above.
 
 ### Changelog
 
