@@ -26,7 +26,7 @@ if [ ${QUESTION} == "a" ]; then
 		echo -e ${YELLOW}"$HOSTNAME already exists: $(grep $HOSTNAME $ETC_HOSTS) ${NC}"
 	else
 		echo -e ${GREEN}"Adding $HOSTNAME to your $ETC_HOSTS ${NC}"
-		sudo -- sh -c -e "echo -e '$HOSTS_LINE' >> /etc/hosts"
+		sudo -- sh -c -e "echo '$HOSTS_LINE' >> /etc/hosts"
 
 		if [ -n "$(grep $HOSTNAME /etc/hosts)" ]; then
 			echo -e ${GREEN}"$HOSTNAME was added succesfully \n $(grep $HOSTNAME /etc/hosts) ${NC}"
