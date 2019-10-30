@@ -21,7 +21,8 @@ Use WordPress locally with Docker using [Docker compose](https://docs.docker.com
 
 ### Requirements
 
-Install [Docker](https://www.docker.com/get-started)
++ [Docker](https://www.docker.com/get-started)
++ Openssl for creatng the SSL cert. Install using Homebrew `brew install openssl`
 
 ### Create SSL cert
 
@@ -32,7 +33,9 @@ cd cli
 
 > Edit the script to your your custom domain, this example uses myapp.local
 
-### Trust the cert in macOS Keychain.
+> Note: OpenSSL needs to be installed.
+
+### Trust the cert in macOS Keychain
 
 Chrome and Safari will trust the certs using this script.
 
