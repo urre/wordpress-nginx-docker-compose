@@ -44,7 +44,7 @@ services:
     restart: always
 
   composer:
-    image: composer/composer
+    image: composer
     container_name: myapp-composer
     working_dir: /var/www/html
     restart: 'no'
