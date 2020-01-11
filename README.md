@@ -24,6 +24,38 @@ Use WordPress locally with Docker using [Docker compose](https://docs.docker.com
 + [Docker](https://www.docker.com/get-started)
 + Openssl for creatng the SSL cert. Install using Homebrew `brew install openssl`
 
+### Setup environment variables
+
+#### For Docker
+
+Copy `.env-example` in the project root to `.env` and edit your preferences.
+
+Example:
+
+```yml
+IP=127.0.0.1
+APP_NAME=myapp
+DOMAIN="myapp.local"
+DB_HOST=mysql
+DB_NAME=myapp
+DB_ROOT_PASSWORD=password
+DB_TABLE_PREFIX=wp_
+
+```
+
+#### For WordPress
+
+Copy `.env-example` in the `src` folder to Copy `.env` and edit your preferences.
+
+Use the following database settings:
+
+```yml
+DB_HOST=mysql:3306
+DB_NAME=myapp
+DB_USER=root
+DB_PASSWORD=password
+```
+
 ### Create SSL cert
 
 ```shell
@@ -46,32 +78,12 @@ cd cli
 ./trust-cert.sh
 ```
 
-> Edit the script to your your custom domain, this example uses myapp.local
-
 ### Setup vhost in /etc/hosts
 
 ```shell
 cd cli
 ./setup-hosts-file.sh
 ```
-> Follow the instructions. For example use `myapp.local`
-
-### Setup ENV
-
-```shell
-cd src
-cp .env.example .env
-```
-
-Use the following database settings:
-
-```yml
-DB_HOST=mysql:3306
-DB_NAME=myapp
-DB_USER=root
-DB_PASSWORD=password
-```
-
 ## Install WordPress and Composer dependencies
 
 ```shell
@@ -89,6 +101,12 @@ docker-compose up -d
 
 🚀 Open up [https://myapp.local](https://myapp.local)
 
+## PhpMyAdmin
+
+PhpMyAdmin comes installed as a service in docker-compose.
+
+
+Open [http://127.0.0.1:8080/](http://127.0.0.1:8080/)
 
 ### Notes:
 
@@ -110,6 +128,10 @@ wp search-replace https://olddomain.com https://newdomain.com --allow-root
 > You can use this command first after you've installed WordPress using Composer as the example above.
 
 ### Changelog
+
+#### 2020-01-11
+- Added `.env` support for specifying your own app name, domain etc. Copy `.env-example` to `.env` and edit your preferences.
+- Added phpMyAdmin. Visit [http://127.0.0.1:8080/](http://127.0.0.1:8080/)
 
 #### 2019-08-02
 - Added Linux support. Thanks to [@faysal-ishtiaq](https://github.com/faysal-ishtiaq).
