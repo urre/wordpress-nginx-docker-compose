@@ -5,13 +5,14 @@
 
 Use WordPress locally with Docker using [Docker compose](https://docs.docker.com/compose/)
 
-+ `Dockerfile` for extending a base image and install wp-cli
-	+ Using a custom [Docker image](https://github.com/urre/wordpress-nginx-docker-compose-image) with [automated build on Docker Hub](https://cloud.docker.com/repository/docker/urre/wordpress-nginx-docker-compose-image)
-+ Local domain ex `myapp.local`
++ `Dockerfile` for extending a base image with a custom [Docker image](https://github.com/urre/wordpress-nginx-docker-compose-image) with [automated build on Docker Hub](https://cloud.docker.com/repository/docker/urre/wordpress-nginx-docker-compose-image)
++ Custom domain for example `myapp.local`
 + Custom nginx config in `./nginx`
 + Custom PHP `php.ini` config in `./config`
 + Volumes for `nginx`, `wordpress` and `mariadb`
 + WordPress using [Bedrock](https://roots.io/bedrock/) - modern development tools, easier configuration, and an improved folder structure
++ Composer
++ PhpMyAdmin
 + CLI scripts
 	- Create a self signed SSL certificate for using https
 	- Trust certs in macOS System Keychain
@@ -26,7 +27,9 @@ Use WordPress locally with Docker using [Docker compose](https://docs.docker.com
 
 ### Setup environment variables
 
-#### For Docker
+Easily set your own local domain, db settings and more. Start by creating `.env` files, like the examples below.
+
+#### For Docker and the cli scripts
 
 Copy `.env-example` in the project root to `.env` and edit your preferences.
 
@@ -103,8 +106,7 @@ docker-compose up -d
 
 ## PhpMyAdmin
 
-PhpMyAdmin comes installed as a service in docker-compose.
-
+PhpMyAdmin now comes installed as a service in docker-compose.
 
 Open [http://127.0.0.1:8080/](http://127.0.0.1:8080/)
 
@@ -130,7 +132,7 @@ wp search-replace https://olddomain.com https://newdomain.com --allow-root
 ### Changelog
 
 #### 2020-01-11
-- Added `.env` support for specifying your own app name, domain etc. Copy `.env-example` to `.env` and edit your preferences.
+- Added `.env` support for specifying your own app name, domain etc in Docker and cli scripts.
 - Added phpMyAdmin. Visit [http://127.0.0.1:8080/](http://127.0.0.1:8080/)
 
 #### 2019-08-02
