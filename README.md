@@ -88,11 +88,9 @@ cd cli
 ## Install WordPress and Composer dependencies
 
 ```shell
-cd src
-composer install
+docker-compose run composer intall
 ```
-
-> You can also use composer like this: `docker-compose run composer update`
+> If you have Composer installed on your Mac you can also use `cd src && composer install`
 
 ## Run
 
