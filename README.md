@@ -66,8 +66,6 @@ cd cli
 ./create-cert.sh
 ```
 
-> Edit the script to your your custom domain, this example uses myapp.local
-
 > Note: OpenSSL needs to be installed.
 
 ### Trust the cert in macOS Keychain
