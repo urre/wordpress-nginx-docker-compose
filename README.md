@@ -48,7 +48,7 @@ DB_TABLE_PREFIX=wp_
 
 #### For WordPress
 
-Copy `.env-example` in the `src` folder to Copy `.env` and edit your preferences.
+Copy `.env-example` in the `src` folder to `.env` and edit your preferences.
 
 Use the following database settings:
 
