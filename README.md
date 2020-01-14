@@ -98,6 +98,17 @@ docker-compose run composer intall
 docker-compose up -d
 ```
 
+docker-compose will start all the services for you:
+
+
+```shell
+Starting myapp-mysql    ... done
+Starting myapp-composer ... done
+Starting myapp-phpmyadmin ... done
+Starting myapp-wordpress  ... done
+Starting myapp-nginx      ... done
+```
+
 🚀 Open up [https://myapp.local](https://myapp.local)
 
 ## PhpMyAdmin
