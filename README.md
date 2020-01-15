@@ -85,6 +85,13 @@ cd cli
 cd cli
 ./setup-hosts-file.sh
 ```
+
+Follow the instructions.
+
+### Setup nginx config
+
+Replace `myapp.local` in `nginx/wordpress_ssl.conf` with your own local domain of choice.
+
 ## Install WordPress and Composer dependencies
 
 ```shell
