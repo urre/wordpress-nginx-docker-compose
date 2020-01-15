@@ -21,7 +21,7 @@ services:
        - './data/db:/var/lib/mysql:delegated'
     environment:
       - MYSQL_ROOT_PASSWORD=password
-      - MYSQL_DATABASE=${APP_NAME}
+      - MYSQL_DATABASE=${DB_NAME}
     restart: always
     ports:
       - '3306:3306'
