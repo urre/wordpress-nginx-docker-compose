@@ -31,11 +31,11 @@ Easily set your own local domain, db settings and more. Start by creating `.env`
 
 #### For Docker and the cli scripts
 
-Copy `.env-example` in the project root to `.env` and edit your preferences.
+Copy `.env.example` in the project root to `.env` and edit your preferences.
 
 Example:
 
-```yml
+```dotenv
 IP=127.0.0.1
 APP_NAME=myapp
 DOMAIN="myapp.local"
@@ -48,11 +48,11 @@ DB_TABLE_PREFIX=wp_
 
 #### For WordPress
 
-Copy `.env-example` in the `src` folder to `.env` and edit your preferences.
+Copy `.env.example` in the `src` folder to `.env` and edit your preferences.
 
 Use the following database settings:
 
-```yml
+```dotenv
 DB_HOST=mysql:3306
 DB_NAME=myapp
 DB_USER=root
