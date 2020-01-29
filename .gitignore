@@ -32,6 +32,10 @@ node_modules
 # Certs
 certs/
 
+# Nginx
+nginx/
+!nginx/wordpress_ssl.conf.example
+
 # Logs
 logs/
 
