@@ -90,7 +90,19 @@ Follow the instructions.
 
 ### Setup nginx config
 
-Replace `myapp.local` in `nginx/wordpress_ssl.conf` with your own local domain of choice.
+From within the cli directory run the following script:
+```shell
+cd cli
+./setup-nginx-config.sh
+```
+It generates the `nginx/wordpress_ssl.conf` file with your own local domain of choice.
+
+If the file already exists, a backup will be created each time.
+If you don't want backups of your nginx conf, run the script with `-nb` (means: "no backup"):
+```shell
+./setup-nginx-config.sh -nb
+```
+
 
 ## Install WordPress and Composer dependencies
 
