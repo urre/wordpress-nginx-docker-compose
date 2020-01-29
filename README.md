@@ -90,8 +90,9 @@ Follow the instructions.
 
 ### Setup nginx config
 
-From within the 
+From within the cli directory run the following script:
 ```shell
+cd cli
 ./setup-nginx-config.sh
 ```
 It generates the `nginx/wordpress_ssl.conf` file with your own local domain of choice.
