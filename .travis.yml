@@ -19,7 +19,7 @@ before_script:
   - composer self-update
 
 install:
-  - composer install
+  - cd src && composer install
 
 notifications:
     on_success: never
