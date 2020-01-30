@@ -4,6 +4,10 @@ branches:
 
 sudo: required
 
+env:
+  global:
+    - SOURCE_DIR=src
+
 language: php
 
 php:
@@ -12,11 +16,10 @@ php:
     - '7.2'
 
 before_script:
-  - cd src
   - composer self-update
 
 install:
-    - composer install
+  - composer install
 
 notifications:
     on_success: never
