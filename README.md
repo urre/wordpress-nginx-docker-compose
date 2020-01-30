@@ -86,12 +86,6 @@ cd cli
 ./setup-hosts-file.sh
 ```
 
-Follow the instructions.
-
-### Setup nginx config
-
-Replace `myapp.local` in `nginx/wordpress_ssl.conf` with your own local domain of choice.
-
 ## Install WordPress and Composer dependencies
 
 ```shell
@@ -145,6 +139,9 @@ wp search-replace https://olddomain.com https://newdomain.com --allow-root
 
 ### Changelog
 
+#### 2020-01-30
+- Use `Entrypoint` command in Docker Compose to replace the domain name in the nginx config. Removing the need to manually edit the domain name in the nginx conf. Now using the `.env` value `DOMAIN`
+- Added APP_NAME in `.env-example` Thanks to [@Dave3o3](https://github.com/Dave3o3)
 #### 2020-01-11
 - Added `.env` support for specifying your own app name, domain etc in Docker and cli scripts.
 - Added phpMyAdmin. Visit [http://127.0.0.1:8080/](http://127.0.0.1:8080/)
