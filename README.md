@@ -27,36 +27,54 @@ Use WordPress locally with Docker using [Docker compose](https://docs.docker.com
 
 ### Setup environment variables
 
-Easily set your own local domain, db settings and more. Start by creating `.env` files, like the examples below.
+Easily set your own local domain, db and wordpress settings and more. Start by creating an `.env` file, like the example below.
 
-#### For Docker and the cli scripts
+#### For Docker, the cli-scripts and WordPress (Bedrock)
 
 Copy `.env-example` in the project root to `.env` and edit your preferences.
+
+Tip: For the WordPress salts and keys go to [Roots.io's generator page](https://roots.io/salts.html) and copy the env format block.
 
 Example:
 
 ```dotenv
+### BASE CONFIG ###
 IP=127.0.0.1
 APP_NAME=myapp
-DOMAIN="myapp.local"
+DOMAIN=myapp.local
 DB_HOST=mysql
 DB_NAME=myapp
 DB_ROOT_PASSWORD=password
 DB_TABLE_PREFIX=wp_
 
+### BEDROCK CONFIG ###
+DB_USER=root
+
+WP_ENV=development
+WP_HOME=https://${DOMAIN}
+WP_SITEURL=${WP_HOME}/wp
+
+# Generate your keys here: https://roots.io/salts.html and copy/paste the env format block
+# just replace the whole block below :)
+AUTH_KEY='generateme'
+SECURE_AUTH_KEY='generateme'
+LOGGED_IN_KEY='generateme'
+NONCE_KEY='generateme'
+AUTH_SALT='generateme'
+SECURE_AUTH_SALT='generateme'
+LOGGED_IN_SALT='generateme'
+NONCE_SALT='generateme'
 ```
 
-#### For WordPress
+** ~~DON'T~~ NEVER EVER USE THE KEYS AND SALTS FROM THIS EXAMPLE! **
 
-Copy `.env-example` in the `src` folder to `.env` and edit your preferences.
+#### Generate Bedrock environment
 
-Use the following database settings:
-
-```dotenv
-DB_HOST=mysql:3306
-DB_NAME=myapp
-DB_USER=root
-DB_PASSWORD=password
+When you are done editing your `.env` file, change back into the `cli` directory and run the `setup-bedrock-env`-script.
+It will create an .env file in the `src` directory, containing all settings for a working Bedrock installation:
+```shell
+cd cli
+./setup-bedrock-env.sh
 ```
 
 ### Create SSL cert
@@ -86,13 +104,30 @@ cd cli
 ./setup-hosts-file.sh
 ```
 
+Follow the instructions.
+
+### Setup nginx config
+
+From within the cli directory run the following script:
+```shell
+cd cli
+./setup-nginx-config.sh
+```
+It generates the `nginx/wordpress_ssl.conf` file with your own local domain of choice.
+
+If the file already exists, a backup will be created each time.
+If you don't want backups of your nginx conf, run the script with `-nb` (means: "no backup"):
+```shell
+./setup-nginx-config.sh -nb
+```
+
+
 ## Install WordPress and Composer dependencies
 
 ```shell
-cd src
-docker-compose run composer install
+docker-compose run composer intall
 ```
-> If you have Composer installed on your computer you can also use `cd src && composer install`
+> If you have Composer installed on your Mac you can also use `cd src && composer install`
 
 ## Run
 
@@ -100,7 +135,7 @@ docker-compose run composer install
 docker-compose up -d
 ```
 
-Docker Compose will start all the services for you:
+docker-compose will start all the services for you:
 
 
 ```shell
@@ -140,9 +175,6 @@ wp search-replace https://olddomain.com https://newdomain.com --allow-root
 
 ### Changelog
 
-#### 2020-01-30
-- Use `Entrypoint` command in Docker Compose to replace the domain name in the nginx config. Removing the need to manually edit the domain name in the nginx conf. Now using the `.env` value `DOMAIN`
-- Added APP_NAME in `.env-example` Thanks to [@Dave3o3](https://github.com/Dave3o3)
 #### 2020-01-11
 - Added `.env` support for specifying your own app name, domain etc in Docker and cli scripts.
 - Added phpMyAdmin. Visit [http://127.0.0.1:8080/](http://127.0.0.1:8080/)
