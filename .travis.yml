@@ -1,9 +1,23 @@
+branches:
+    only:
+        - master
+
+sudo: required
+
+language: php
+
 php:
-  - 7.2
+    - '7.0'
+    - '7.1'
+    - '7.2'
 
 before_script:
+  - cd src
   - composer self-update
-  - composer install --prefer-source --no-interaction --dev
+
+install:
+    - cd src
+    - composer install
 
 notifications:
     on_success: never
