@@ -27,36 +27,54 @@ Use WordPress locally with Docker using [Docker compose](https://docs.docker.com
 
 ### Setup environment variables
 
-Easily set your own local domain, db settings and more. Start by creating `.env` files, like the examples below.
+Easily set your own local domain, db and wordpress settings and more. Start by creating an `.env` file, like the example below.
 
-#### For Docker and the cli scripts
+#### For Docker, the cli-scripts and WordPress (Bedrock)
 
 Copy `.env-example` in the project root to `.env` and edit your preferences.
+
+Tip: For the WordPress salts and keys go to [Roots.io's generator page](https://roots.io/salts.html) and copy the env format block.
 
 Example:
 
 ```dotenv
+### BASE CONFIG ###
 IP=127.0.0.1
 APP_NAME=myapp
-DOMAIN="myapp.local"
+DOMAIN=myapp.local
 DB_HOST=mysql
 DB_NAME=myapp
 DB_ROOT_PASSWORD=password
 DB_TABLE_PREFIX=wp_
 
+### BEDROCK CONFIG ###
+DB_USER=root
+
+WP_ENV=development
+WP_HOME=https://${DOMAIN}
+WP_SITEURL=${WP_HOME}/wp
+
+# Generate your keys here: https://roots.io/salts.html and copy/paste the env format block
+# just replace the whole block below :)
+AUTH_KEY='generateme'
+SECURE_AUTH_KEY='generateme'
+LOGGED_IN_KEY='generateme'
+NONCE_KEY='generateme'
+AUTH_SALT='generateme'
+SECURE_AUTH_SALT='generateme'
+LOGGED_IN_SALT='generateme'
+NONCE_SALT='generateme'
 ```
 
-#### For WordPress
+** ~~DON'T~~ NEVER EVER USE THE KEYS AND SALTS FROM THIS EXAMPLE! **
 
-Copy `.env-example` in the `src` folder to `.env` and edit your preferences.
+#### Generate Bedrock environment
 
-Use the following database settings:
-
-```dotenv
-DB_HOST=mysql:3306
-DB_NAME=myapp
-DB_USER=root
-DB_PASSWORD=password
+When you are done editing your `.env` file, change back into the `cli` directory and run the `setup-bedrock-env`-script.
+It will create an .env file in the `src` directory, containing all settings for a working Bedrock installation:
+```shell
+cd cli
+./setup-bedrock-env.sh
 ```
 
 ### Create SSL cert

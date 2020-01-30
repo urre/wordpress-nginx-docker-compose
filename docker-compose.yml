@@ -19,9 +19,9 @@ services:
     image: mariadb
     container_name: ${APP_NAME}-mysql
     volumes:
-       - './data/db:/var/lib/mysql:delegated'
+      - './data/db:/var/lib/mysql:delegated'
     environment:
-      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
       - MYSQL_DATABASE=${DB_NAME}
     restart: always
     ports:
