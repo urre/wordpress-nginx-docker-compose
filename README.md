@@ -35,7 +35,7 @@ Copy `.env-example` in the project root to `.env` and edit your preferences.
 
 Example:
 
-```yml
+```dotenv
 IP=127.0.0.1
 APP_NAME=myapp
 DOMAIN="myapp.local"
@@ -52,7 +52,7 @@ Copy `.env-example` in the `src` folder to `.env` and edit your preferences.
 
 Use the following database settings:
 
-```yml
+```dotenv
 DB_HOST=mysql:3306
 DB_NAME=myapp
 DB_USER=root
@@ -89,9 +89,10 @@ cd cli
 ## Install WordPress and Composer dependencies
 
 ```shell
-docker-compose run composer intall
+cd src
+docker-compose run composer install
 ```
-> If you have Composer installed on your Mac you can also use `cd src && composer install`
+> If you have Composer installed on your computer you can also use `cd src && composer install`
 
 ## Run
 
@@ -99,7 +100,7 @@ docker-compose run composer intall
 docker-compose up -d
 ```
 
-docker-compose will start all the services for you:
+Docker Compose will start all the services for you:
 
 
 ```shell
