@@ -1,22 +1,33 @@
-branches:
-    only:
-        - master
-
-sudo: required
-
-env:
-  global:
-    - SOURCE_DIR=src
+sudo: false
 
 language: php
 
 php:
-    - '7.2'
-    - '7.3'
+  - '7.2'
+  - '7.3'
 
-install:
-  - cd src && composer install
+services:
+  - docker
+
+env:
+  DOCKER_COMPOSE_VERSION: 1.23.2
+
+before_install:
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+
+before_script:
+  - docker-compose up --build -d
+  - composer self-update
+
+script:
+  - cd src && composer install -o --prefer-dist --no-interaction
+
+after_script:
+  - docker-compose down
 
 notifications:
-    on_success: never
-    on_failure: always
+  on_success: never
+  on_failure: always
