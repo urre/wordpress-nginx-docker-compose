@@ -10,7 +10,8 @@ services:
   - docker
 
 env:
-  DOCKER_COMPOSE_VERSION: 1.23.2
+  - DOCKER_COMPOSE_VERSION: 1.23.2
+  - APP_NAME: 'test'
 
 before_install:
   - sudo rm /usr/local/bin/docker-compose
@@ -19,7 +20,7 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
 
 before_script:
-  - docker-compose up --build -d
+  - docker-compose up
   - composer self-update
 
 script:
