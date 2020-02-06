@@ -5,7 +5,9 @@
 
 Use WordPress locally with Docker using [Docker compose](https://docs.docker.com/compose/)
 
-+ `Dockerfile` for extending a base image with a custom [Docker image](https://github.com/urre/wordpress-nginx-docker-compose-image) with [automated build on Docker Hub](https://cloud.docker.com/repository/docker/urre/wordpress-nginx-docker-compose-image)
+This setup comes shipped with:
+
++ A `Dockerfile` for extending a base image and using a custom [Docker image](https://github.com/urre/wordpress-nginx-docker-compose-image) with an [automated build on Docker Hub](https://cloud.docker.com/repository/docker/urre/wordpress-nginx-docker-compose-image)
 + Custom domain for example `myapp.local`
 + Custom nginx config in `./nginx`
 + Custom PHP `php.ini` config in `./config`
@@ -79,12 +81,16 @@ cd cli
 ./trust-cert.sh
 ```
 
-### Setup vhost in /etc/hosts
+### Add the local domain in in /etc/hosts
+
+To be able to use for example `https://myapp.local` in our browser, we need to modify the `/etc/hosts` file on our local machine to point the custom domain name. The `/etc/hosts` file contains a mapping of IP addresses to URLs.
 
 ```shell
 cd cli
 ./setup-hosts-file.sh
 ```
+
+> The helper script can both add or remove a entry from /etc/hosts. First enter the domain name, then press "a" for add, or "r" to remove. Follow the instructions on the screen.
 
 ## Install WordPress and Composer dependencies
 
