@@ -12,9 +12,10 @@ This setup comes shipped with:
 + Custom nginx config in `./nginx`
 + Custom PHP `php.ini` config in `./config`
 + Volumes for `nginx`, `wordpress` and `mariadb`
-+ WordPress using [Bedrock](https://roots.io/bedrock/) - modern development tools, easier configuration, and an improved folder structure
++ [Bedrock](https://roots.io/bedrock/) - modern development tools, easier configuration, and an improved secured folder structure for WordPress
 + Composer
-+ PhpMyAdmin
++ [WP-CLI](https://wp-cli.org/) - WP-CLI is the command-line interface for WordPress.
++ [PhpMyAdmin](https://www.phpmyadmin.net/) - free and open source administration tool for MySQL and MariaDB
 + CLI scripts
 	- Create a self signed SSL certificate for using https
 	- Trust certs in macOS System Keychain
@@ -81,7 +82,7 @@ cd cli
 ./trust-cert.sh
 ```
 
-### Add the local domain in in /etc/hosts
+### Add the local domain in /etc/hosts
 
 To be able to use for example `https://myapp.local` in our browser, we need to modify the `/etc/hosts` file on our local machine to point the custom domain name. The `/etc/hosts` file contains a mapping of IP addresses to URLs.
 
@@ -108,7 +109,6 @@ docker-compose up -d
 
 Docker Compose will start all the services for you:
 
-
 ```shell
 Starting myapp-mysql    ... done
 Starting myapp-composer ... done
@@ -121,11 +121,11 @@ Starting myapp-nginx      ... done
 
 ## PhpMyAdmin
 
-PhpMyAdmin now comes installed as a service in docker-compose.
+PhpMyAdmin comes installed as a service in docker-compose.
 
 Open [http://127.0.0.1:8080/](http://127.0.0.1:8080/)
 
-### Notes:
+## Notes:
 
 When making changes to the Dockerfile, use:
 
@@ -133,18 +133,28 @@ When making changes to the Dockerfile, use:
 docker-compose up -d --force-recreate --build
 ```
 
-### Tools
+## Tools
 
 #### wp-cli
 
-```
+```shell
 docker exec -it myapp-wordpress bash
+```
+
+Login to the container
+
+```shell
 wp search-replace https://olddomain.com https://newdomain.com --allow-root
 ```
+
+Run a wp-cli command like this
 
 > You can use this command first after you've installed WordPress using Composer as the example above.
 
 ### Changelog
+
+#### 2020-02-06
+- Readme improvements. Explain /etc/hosts better
 
 #### 2020-01-30
 - Use `Entrypoint` command in Docker Compose to replace the domain name in the nginx config. Removing the need to manually edit the domain name in the nginx conf. Now using the `.env` value `DOMAIN`
