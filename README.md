@@ -153,9 +153,10 @@ Run a wp-cli command like this
 
 ### Changelog
 
+#### 2020-03-26
+- Added phpMyAdmin config.Thanks to [@titoffanton](https://github.com/titoffanton)
 #### 2020-02-06
-- Readme improvements. Explain /etc/hosts better
-
+- Readme improvements. Explain `/etc/hosts` better
 #### 2020-01-30
 - Use `Entrypoint` command in Docker Compose to replace the domain name in the nginx config. Removing the need to manually edit the domain name in the nginx conf. Now using the `.env` value `DOMAIN`
 - Added APP_NAME in `.env-example` Thanks to [@Dave3o3](https://github.com/Dave3o3)
