@@ -117,13 +117,13 @@ Starting myapp-wordpress  ... done
 Starting myapp-nginx      ... done
 ```
 
-🚀 Open up [https://myapp.local](https://myapp.local)
+🚀 Open [https://myapp.local](https://myapp.local) in your browser
 
 ## PhpMyAdmin
 
 PhpMyAdmin comes installed as a service in docker-compose.
 
-Open [http://127.0.0.1:8080/](http://127.0.0.1:8080/)
+🚀 Open [http://127.0.0.1:8080/](http://127.0.0.1:8080/)  in your browser
 
 ## Notes:
 
