@@ -99,7 +99,6 @@ cd cli
 ## Install WordPress and Composer dependencies
 
 ```shell
-cd src
 docker-compose run composer install
 ```
 > If you have Composer installed on your computer you can also use `cd src && composer install`
