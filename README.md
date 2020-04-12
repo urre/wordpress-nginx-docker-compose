@@ -59,9 +59,6 @@ Copy `.env-example` in the `src` folder to `.env` and edit your preferences.
 Use the following database settings:
 
 ```dotenv
-APP_NAME=myapp
-DOMAIN=myapp.local
-DB_ROOT_PASSWORD=password
 DB_HOST=mysql
 DB_NAME=myapp
 DB_USER=root
