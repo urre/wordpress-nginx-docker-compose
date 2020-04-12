@@ -155,6 +155,9 @@ Run a wp-cli command like this
 
 ### Changelog
 
+#### 2020-04-12
+- Remove port number from `DB_HOST`. Generated database connection error in macOS Catalina. Thanks to [@nirvanadev](https://github.com/nirvanadev)
+- Add missing ENV variable from mariadb Thanks to [@vonwa](https://github.com/vonwa)
 #### 2020-03-26
 - Added phpMyAdmin config.Thanks to [@titoffanton](https://github.com/titoffanton)
 #### 2020-02-06
