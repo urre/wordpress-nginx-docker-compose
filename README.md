@@ -3,6 +3,8 @@
 
 [![Build Status](https://travis-ci.org/urre/wordpress-nginx-docker-compose.svg?branch=master)](https://travis-ci.org/urre/wordpress-nginx-docker-compose)
 
+[![Donate](https://img.shields.io/badge/Donation-green?logo=paypal&label=Paypal)](https://www.paypal.me/urbansanden/5)
+
 Use WordPress locally with Docker using [Docker compose](https://docs.docker.com/compose/)
 
 This setup comes shipped with:
@@ -16,6 +18,7 @@ This setup comes shipped with:
 + Composer
 + [WP-CLI](https://wp-cli.org/) - WP-CLI is the command-line interface for WordPress.
 + [PhpMyAdmin](https://www.phpmyadmin.net/) - free and open source administration tool for MySQL and MariaDB
+	- PhpMyAdmin config in `./config`
 + CLI scripts
 	- Create a self signed SSL certificate for using https
 	- Trust certs in macOS System Keychain
@@ -56,7 +59,7 @@ Copy `.env-example` in the `src` folder to `.env` and edit your preferences.
 Use the following database settings:
 
 ```dotenv
-DB_HOST=mysql:3306
+DB_HOST=mysql
 DB_NAME=myapp
 DB_USER=root
 DB_PASSWORD=password
@@ -96,7 +99,6 @@ cd cli
 ## Install WordPress and Composer dependencies
 
 ```shell
-cd src
 docker-compose run composer install
 ```
 > If you have Composer installed on your computer you can also use `cd src && composer install`
@@ -117,13 +119,13 @@ Starting myapp-wordpress  ... done
 Starting myapp-nginx      ... done
 ```
 
-🚀 Open up [https://myapp.local](https://myapp.local)
+🚀 Open [https://myapp.local](https://myapp.local) in your browser
 
 ## PhpMyAdmin
 
 PhpMyAdmin comes installed as a service in docker-compose.
 
-Open [http://127.0.0.1:8080/](http://127.0.0.1:8080/)
+🚀 Open [http://127.0.0.1:8080/](http://127.0.0.1:8080/)  in your browser
 
 ## Notes:
 
@@ -153,9 +155,13 @@ Run a wp-cli command like this
 
 ### Changelog
 
+#### 2020-04-12
+- Remove port number from `DB_HOST`. Generated database connection error in macOS Catalina. Thanks to [@nirvanadev](https://github.com/nirvanadev)
+- Add missing ENV variable from mariadb Thanks to [@vonwa](https://github.com/vonwa)
+#### 2020-03-26
+- Added phpMyAdmin config.Thanks to [@titoffanton](https://github.com/titoffanton)
 #### 2020-02-06
-- Readme improvements. Explain /etc/hosts better
-
+- Readme improvements. Explain `/etc/hosts` better
 #### 2020-01-30
 - Use `Entrypoint` command in Docker Compose to replace the domain name in the nginx config. Removing the need to manually edit the domain name in the nginx conf. Now using the `.env` value `DOMAIN`
 - Added APP_NAME in `.env-example` Thanks to [@Dave3o3](https://github.com/Dave3o3)

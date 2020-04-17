@@ -21,7 +21,7 @@ services:
     volumes:
        - './data/db:/var/lib/mysql:delegated'
     environment:
-      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
       - MYSQL_DATABASE=${DB_NAME}
     restart: always
     ports:
@@ -42,6 +42,8 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: ${APP_NAME}-phpmyadmin
+    volumes:
+      - ./config/phpmyadmin.ini:/usr/local/etc/php/conf.d/phpmyadmin.ini
     environment:
       PMA_HOST: "${DB_HOST}"
       PMA_PORT: 3306
