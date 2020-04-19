@@ -67,6 +67,8 @@ DB_PASSWORD=password
 
 ### Create SSL cert
 
+#### macOS and Linux
+
 ```shell
 cd cli
 ./create-cert.sh
@@ -74,7 +76,13 @@ cd cli
 
 > Note: OpenSSL needs to be installed.
 
-### Trust the cert in macOS Keychain
+### Windows
+
+Use the bat file in in `./cli/windows scripts/create-cert.bat`
+
+### Trust the cert
+
+#### Add to macOS Keychain
 
 Chrome and Safari will trust the certs using this script.
 
@@ -85,9 +93,15 @@ cd cli
 ./trust-cert.sh
 ```
 
+#### Windows
+
+Follow the instructions in  `./cli/windows scripts/trust-cert.txt`
+
 ### Add the local domain in /etc/hosts
 
 To be able to use for example `https://myapp.local` in our browser, we need to modify the `/etc/hosts` file on our local machine to point the custom domain name. The `/etc/hosts` file contains a mapping of IP addresses to URLs.
+
+#### macOS and Linux
 
 ```shell
 cd cli
@@ -95,6 +109,10 @@ cd cli
 ```
 
 > The helper script can both add or remove a entry from /etc/hosts. First enter the domain name, then press "a" for add, or "r" to remove. Follow the instructions on the screen.
+
+#### Windows
+
+Follow the instructions in  `./cli/windows scripts/setup-hosts-file.txt`
 
 ## Install WordPress and Composer dependencies
 
@@ -155,6 +173,8 @@ Run a wp-cli command like this
 
 ### Changelog
 
+#### 2020-04-19
+- Added Windows support for creating SSH cert, trusting it and setting up the host file entry. Thanks to [@styssi](https://github.com/styssi)
 #### 2020-04-12
 - Remove port number from `DB_HOST`. Generated database connection error in macOS Catalina. Thanks to [@nirvanadev](https://github.com/nirvanadev)
 - Add missing ENV variable from mariadb Thanks to [@vonwa](https://github.com/vonwa)
