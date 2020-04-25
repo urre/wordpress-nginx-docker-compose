@@ -114,12 +114,18 @@ cd cli
 
 Follow the instructions in  `./cli/windows scripts/setup-hosts-file.txt`
 
-## Install WordPress and Composer dependencies
+## Install WordPress and Composer packages (plugins/themes)
 
 ```shell
 docker-compose run composer install
 ```
 > If you have Composer installed on your computer you can also use `cd src && composer install`
+
+### Update WordPress Core and Composer packages (plugins/themes)
+
+```shell
+docker-compose run composer update
+```
 
 ## Run
 
