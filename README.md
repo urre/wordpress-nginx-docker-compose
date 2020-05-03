@@ -179,6 +179,8 @@ Run a wp-cli command like this
 
 ### Changelog
 
+#### 2020-05-03
+- Added nginx gzip compression
 #### 2020-04-19
 - Added Windows support for creating SSH cert, trusting it and setting up the host file entry. Thanks to [@styssi](https://github.com/styssi)
 #### 2020-04-12
