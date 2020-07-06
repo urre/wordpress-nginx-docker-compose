@@ -111,16 +111,15 @@ Follow the instructions in  `./cli/windows scripts/setup-hosts-file.txt`
 docker-compose run composer create-project
 ```
 
-> If you have Composer installed on your computer you can also use `cd src && composer install`
-```
-
 ## Run
 
 ```shell
 docker-compose up -d
 ```
 
-Docker Compose will start all the services for you:
+> -d is for detached mode, this will run containers in the background.
+
+Docker Compose will now start all the services for you:
 
 ```shell
 Starting myapp-mysql    ... done
