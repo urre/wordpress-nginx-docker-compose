@@ -17,6 +17,7 @@ This setup comes shipped with:
 + [Bedrock](https://roots.io/bedrock/) - modern development tools, easier configuration, and an improved secured folder structure for WordPress
 + Composer
 + [WP-CLI](https://wp-cli.org/) - WP-CLI is the command-line interface for WordPress.
++ [MailHog](https://github.com/mailhog/MailHog) - An email testing tool for developers. Configure your outgoing SMTP server and view your outgoing email in a web UI.
 + [PhpMyAdmin](https://www.phpmyadmin.net/) - free and open source administration tool for MySQL and MariaDB
 	- PhpMyAdmin config in `./config`
 + CLI scripts
@@ -127,6 +128,7 @@ Starting myapp-composer ... done
 Starting myapp-phpmyadmin ... done
 Starting myapp-wordpress  ... done
 Starting myapp-nginx      ... done
+Starting myapp-mailhog    ... done
 ```
 
 🚀 Open [https://myapp.local](https://myapp.local) in your browser
@@ -135,7 +137,13 @@ Starting myapp-nginx      ... done
 
 PhpMyAdmin comes installed as a service in docker-compose.
 
-🚀 Open [http://127.0.0.1:8080/](http://127.0.0.1:8080/)  in your browser
+🚀 Open [http://127.0.0.1:8080/](http://127.0.0.1:8080/) in your browser
+
+## MailHog
+
+MailHog comes installed as a service in docker-compose.
+
+🚀 Open [http://127.0.0.1:8025/](hhttp://127.0.0.1:8025/) in your browser
 
 
 ## Tools
@@ -218,6 +226,8 @@ docker-compose up -d --force-recreate --build
 
 ### Changelog
 
+#### 2020-07-12
+- Added Mailhog. Thanks [@mortensassi](https://github.com/mortensassi)
 #### 2020-05-03
 - Added nginx gzip compression
 #### 2020-04-19
