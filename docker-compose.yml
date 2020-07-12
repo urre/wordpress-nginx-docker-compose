@@ -53,6 +53,13 @@ services:
     links:
       - mysql:mysql
 
+  mailhog:
+    container_name: ${APP_NAME}-mailhog
+    image: mailhog/mailhog
+    ports:
+      - "8025:8025"
+      - "1025:1025"
+
   composer:
     image: composer
     container_name: ${APP_NAME}-composer
