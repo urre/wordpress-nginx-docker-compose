@@ -143,7 +143,7 @@ PhpMyAdmin comes installed as a service in docker-compose.
 
 MailHog comes installed as a service in docker-compose.
 
-🚀 Open [http://127.0.0.1:8025/](hhttp://127.0.0.1:8025/) in your browser
+🚀 Open [http://127.0.0.1:8025/](http://127.0.0.1:8025/) in your browser
 
 
 ## Tools
