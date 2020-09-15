@@ -9,22 +9,26 @@
  */
 
 use Roots\WPConfig\Config;
-
-/** @var string Directory containing all of the site's files */
-$root_dir = dirname(__DIR__);
-
-/** @var string Document Root */
-$webroot_dir = $root_dir . '/web';
+use function Env\env;
 
 /**
- * Expose global env() function from oscarotero/env
+ * Directory containing all of the site's files
+ *
+ * @var string
  */
-Env::init();
+$root_dir = dirname(__DIR__);
+
+/**
+ * Document Root
+ *
+ * @var string
+ */
+$webroot_dir = $root_dir . '/web';
 
 /**
  * Use Dotenv to set required environment variables and load .env file in root
  */
-$dotenv = Dotenv\Dotenv::create($root_dir);
+$dotenv = Dotenv\Dotenv::createImmutable($root_dir);
 if (file_exists($root_dir . '/.env')) {
     $dotenv->load();
     $dotenv->required(['WP_HOME', 'WP_SITEURL']);
@@ -68,7 +72,7 @@ if (env('DATABASE_URL')) {
 
     Config::define('DB_NAME', substr($dsn->path, 1));
     Config::define('DB_USER', $dsn->user);
-    Config::define('DB_PASSWORD', $dsn->pass ?? null);
+    Config::define('DB_PASSWORD', isset($dsn->pass) ? $dsn->pass : null);
     Config::define('DB_HOST', isset($dsn->port) ? "{$dsn->host}:{$dsn->port}" : $dsn->host);
 }
 
@@ -98,8 +102,9 @@ Config::define('DISALLOW_FILE_MODS', true);
  * Debugging Settings
  */
 Config::define('WP_DEBUG_DISPLAY', false);
+Config::define('WP_DEBUG_LOG', env('WP_DEBUG_LOG') ?? false);
 Config::define('SCRIPT_DEBUG', false);
-ini_set('display_errors', 0);
+ini_set('display_errors', '0');
 
 /**
  * Allow WordPress to detect HTTPS when used behind a reverse proxy or a load balancer
