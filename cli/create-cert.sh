@@ -33,7 +33,7 @@ openssl req \
     -config <(cat $OPENSSL_CNF_PATH \
         <(printf '[SAN]\nsubjectAltName=DNS:'${DOMAIN})) \
     -sha256 \
-    -days 3650
+    -days 365
 
 rm -rf ../certs/*
 mkdir -p ../certs
