@@ -226,6 +226,8 @@ docker-compose up -d --force-recreate --build
 
 ### Changelog
 
+#### 2020-10-04
+- Added mysql-client (Solves [#54](https://github.com/urre/wordpress-nginx-docker-compose/issues/54))
 #### 2020-09-15
 - Updated Bedrock. Update WordPress to 5.5.1 and other composer updates.
 #### 2020-07-12
