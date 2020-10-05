@@ -3,7 +3,7 @@
 
 [![Build Status](https://travis-ci.org/urre/wordpress-nginx-docker-compose.svg?branch=master)](https://travis-ci.org/urre/wordpress-nginx-docker-compose)
 
-[![Donate](https://img.shields.io/badge/Donation-green?logo=paypal&label=Paypal)](https://www.paypal.me/urbansanden/5)
+[![Donate](https://img.shields.io/badge/Donation-green?logo=paypal&label=Paypal)](https://www.paypal.me/urbansanden)
 
 Use WordPress locally with Docker using [Docker compose](https://docs.docker.com/compose/)
 
@@ -21,7 +21,7 @@ This setup comes shipped with:
 + [PhpMyAdmin](https://www.phpmyadmin.net/) - free and open source administration tool for MySQL and MariaDB
 	- PhpMyAdmin config in `./config`
 + CLI scripts
-	- Create a self signed SSL certificate for using https
+	- Create a self signed SSL certificate for using HTTPS
 	- Trust certs in macOS System Keychain
 	- Setup the local domain in your in `/etc/hosts`
 
