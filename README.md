@@ -10,6 +10,7 @@ Use WordPress locally with Docker using [Docker compose](https://docs.docker.com
 This setup comes shipped with:
 
 + A `Dockerfile` for extending a base image and using a custom [Docker image](https://github.com/urre/wordpress-nginx-docker-compose-image) with an [automated build on Docker Hub](https://cloud.docker.com/repository/docker/urre/wordpress-nginx-docker-compose-image)
++ PHP 7.4
 + Custom domain for example `myapp.local`
 + Custom nginx config in `./nginx`
 + Custom PHP `php.ini` config in `./config`
