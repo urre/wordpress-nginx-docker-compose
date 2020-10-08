@@ -12,4 +12,4 @@ RUN curl --location --output /usr/local/bin/mhsendmail https://github.com/mailho
     chmod +x /usr/local/bin/mhsendmail
 RUN echo 'sendmail_path="/usr/local/bin/mhsendmail --smtp-addr=mailhog:1025 --from=no-reply@gbp.lo"' > /usr/local/etc/php/conf.d/mailhog.ini
 
-# Note: Use docker-compose up -d --force-recreate --build when Dockerfile has changed.
+# Important Note: Use docker-compose up -d --force-recreate --build when Dockerfile has changed.
