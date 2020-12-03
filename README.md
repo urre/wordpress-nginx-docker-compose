@@ -26,8 +26,10 @@ Use WordPress locally with Docker using [Docker compose](https://docs.docker.com
 	- Trust certs in macOS System Keychain
 	- Setup the local domain in your in `/etc/hosts`
 
+## Instructions
+
 <details>
- <summary><h2 style="display: inline-block">Requirements</h2></summary>
+ <summary>Requirements</summary>
 
 + [Docker](https://www.docker.com/get-started)
 + [mkcert](https://github.com/FiloSottile/mkcert) for creating the SSL cert.
@@ -42,7 +44,7 @@ brew install nss # if you use Firefox
 </details>
 
 <details>
- <summary><h2 style="display: inline-block">Setup</h2></summary>
+ <summary>Setup</summary>
 
  ### Setup Environment variables
  Easily set your own local domain, db settings and more. Start by creating `.env` files, like the examples below.
@@ -69,7 +71,7 @@ Edit `./src/.env-example` to your needs. During the `composer create-project` co
 </details>
 
 <details>
- <summary><h2 style="display: inline-block">Use with SSL cert (HTTPS)</h2></summary>
+ <summary>Use with SSL cert (HTTPS)</summary>
 
 ```shell
 cd cli
@@ -91,7 +93,7 @@ This script will create a locally-trusted development certificates. It requires 
 </details>
 
 <details>
- <summary><h2 style="display: inline-block">Use without SSL cert</h2></summary>
+ <summary>Use without SSL</summary>
 
 1. Edit `nginx/default.conf`
 
@@ -156,7 +158,7 @@ Open [http://127.0.0.1:8080/](http://127.0.0.1:8080/)
 </details>
 
 <details>
- <summary><h2 style="display: inline-block">Install</h2></summary>
+ <summary>Install</summary>
 
 ```shell
 docker-compose run composer create-project
@@ -165,13 +167,11 @@ docker-compose run composer create-project
 </details>
 
 <details>
- <summary><h2 style="display: inline-block">Run</h2></summary>
+ <summary>Run</summary>
 
 ```shell
-docker-compose up -d
+docker-compose up
 ```
-
-> -d is for detached mode, this will run containers in the background.
 
 Docker Compose will now start all the services for you:
 
@@ -201,7 +201,7 @@ MailHog comes installed as a service in docker-compose.
 </details>
 
 <details>
- <summary><h2 style="display: inline-block">Tools</h2></summary>
+ <summary>Tools</summary>
 
 ### Update WordPress Core and Composer packages (plugins/themes)
 
@@ -209,7 +209,7 @@ MailHog comes installed as a service in docker-compose.
 docker-compose run composer update
 ```
 
-#### Use wp-cli
+#### Use WP-CLI
 
 ```shell
 docker exec -it myapp-wordpress bash
@@ -280,7 +280,7 @@ docker-compose up -d --force-recreate --build
 </details>
 
 <details>
- <summary><h2 style="display: inline-block">Changelog</h2></summary>
+ <summary>Changelog</summary>
 
 #### 2020-10-04
 - Added mariadb-client (Solves [#54](https://github.com/urre/wordpress-nginx-docker-compose/issues/54))
