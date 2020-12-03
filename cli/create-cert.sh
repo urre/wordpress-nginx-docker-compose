@@ -12,33 +12,11 @@ source "../.env"
 
 DOMAIN=$(echo "$DOMAIN")
 
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    OPENSSL_CNF_PATH=/etc/ssl/openssl.cnf
-fi
+mkcert "${DOMAIN}"
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    OPENSSL_CNF_PATH=/System/Library/OpenSSL/openssl.cnf
-fi
-
-openssl req \
-    -newkey rsa:2048 \
-    -x509 \
-    -nodes \
-    -keyout "${DOMAIN}".key \
-    -new \
-    -out "${DOMAIN}".crt \
-    -subj /CN="${DOMAIN}" \
-    -reqexts SAN \
-    -extensions SAN \
-    -config <(cat $OPENSSL_CNF_PATH \
-        <(printf '[SAN]\nsubjectAltName=DNS:'${DOMAIN})) \
-    -sha256 \
-    -days 365
-
-rm -rf ../certs/*
 mkdir -p ../certs
 
-mv *.crt ../certs/
-mv *.key ../certs/
+mv *.pem ../certs/
+mv *.pem ../certs/
 
 echo -e ${GREEN}"Cert created in /cert! ${NC}"

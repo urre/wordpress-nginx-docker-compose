@@ -1,8 +1,0 @@
-1. Go to the /cert folder
-2. Right click on the myapp.local.crt file you just created
-3. Click on Install
-4. Certificate Import Wizard will open
-5. Select "Current User" and click "Next"
-6. Browser for "Trusted Root Certification Authorities" and click "OK" and then click "Next"
-7. Click "Finish"
-8. Click "Yes"

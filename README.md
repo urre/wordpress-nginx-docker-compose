@@ -7,7 +7,7 @@
 
 Use WordPress locally with Docker using [Docker compose](https://docs.docker.com/compose/)
 
-This setup comes shipped with:
+## Contents
 
 + A `Dockerfile` for extending a base image and using a custom [Docker image](https://github.com/urre/wordpress-nginx-docker-compose-image) with an [automated build on Docker Hub](https://cloud.docker.com/repository/docker/urre/wordpress-nginx-docker-compose-image)
 + PHP 7.4
@@ -26,16 +26,26 @@ This setup comes shipped with:
 	- Trust certs in macOS System Keychain
 	- Setup the local domain in your in `/etc/hosts`
 
-## Setup
-
-### Requirements
+<details>
+ <summary><h2 style="display: inline-block">Requirements</h2></summary>
 
 + [Docker](https://www.docker.com/get-started)
-+ Openssl for creatng the SSL cert. Install using Homebrew `brew install openssl`
++ [mkcert](https://github.com/FiloSottile/mkcert) for creating the SSL cert.
 
-### Setup environment variables
+Install using:
 
-Easily set your own local domain, db settings and more. Start by creating `.env` files, like the examples below.
+```
+brew install mkcert
+brew install nss # if you use Firefox
+```
+
+</details>
+
+<details>
+ <summary><h2 style="display: inline-block">Setup</h2></summary>
+
+ ### Setup Environment variables
+ Easily set your own local domain, db settings and more. Start by creating `.env` files, like the examples below.
 
 #### For Docker and the cli scripts
 
@@ -51,69 +61,111 @@ DB_HOST=mysql
 DB_NAME=myapp
 DB_ROOT_PASSWORD=password
 DB_TABLE_PREFIX=wp_
-
 ```
 
 #### For WordPress
 
 Edit `./src/.env-example` to your needs. During the `composer create-project` command described below, an `./src/.env` will be created.
+</details>
 
-### Create SSL cert
-
-#### macOS and Linux
+<details>
+ <summary><h2 style="display: inline-block">Use with SSL cert (HTTPS)</h2></summary>
 
 ```shell
 cd cli
 ./create-cert.sh
 ```
 
-> Note: OpenSSL needs to be installed.
+> Note: mkcert needs to be installed.
+
+This script will create a locally-trusted development certificates. It requires no configuration.
 
 ### Windows
 
-Use the bat file in in `./cli/windows scripts/create-cert.bat`
+[Follow the instructions](https://github.com/FiloSottile/mkcert#windows)
 
-### Trust the cert
+### Linux
 
-#### Add to macOS Keychain
+[Follow the instructions](https://github.com/FiloSottile/mkcert#linux)
 
-Chrome and Safari will trust the certs using this script.
+</details>
 
-> In Firefox: Select Advanced, Select the Encryption tab, Click View Certificates. Navigate to where you stored the certificate and click Open, Click Import.
+<details>
+ <summary><h2 style="display: inline-block">Use without SSL cert</h2></summary>
 
-```shell
-cd cli
-./trust-cert.sh
-```
-
-#### Windows
-
-Follow the instructions in  `./cli/windows scripts/trust-cert.txt`
-
-### Add the local domain in /etc/hosts
-
-To be able to use for example `https://myapp.local` in our browser, we need to modify the `/etc/hosts` file on our local machine to point the custom domain name. The `/etc/hosts` file contains a mapping of IP addresses to URLs.
-
-#### macOS and Linux
+1. Edit `nginx/default.conf`
 
 ```shell
-cd cli
-./setup-hosts-file.sh
+server {
+    listen 80;
+
+    root /var/www/html/web;
+    index index.php;
+
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log;
+
+    client_max_body_size 100M;
+
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
+
+    location ~ \.php$ {
+        try_files $uri =404;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass wordpress:9000;
+        fastcgi_index index.php;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param PATH_INFO $fastcgi_path_info;
+    }
+}
 ```
 
-> The helper script can both add or remove a entry from /etc/hosts. First enter the domain name, then press "a" for add, or "r" to remove. Follow the instructions on the screen.
+2. Edit the nginx service in `docker-compose.yml` to use port 80. 443 is not needed now.
 
-#### Windows
+```shell
+  nginx:
+    image: nginx:latest
+    container_name: ${APP_NAME}-nginx
+    ports:
+      - '80:80'
 
-Follow the instructions in  `./cli/windows scripts/setup-hosts-file.txt`
+```
 
-## Install
+3. Edit `./src/.env-example` and set
+
+```
+WP_HOME='localhost'
+```
+
+3. Edit the phpmyadmin service in `docker-compose.yml` to use port 8080 instead of 80
+
+```
+  phpmyadmin:
+		...
+    ports:
+      - '8080:80'
+		...
+```
+
+Open [http://127.0.0.1:8080/](http://127.0.0.1:8080/)
+
+
+</details>
+
+<details>
+ <summary><h2 style="display: inline-block">Install</h2></summary>
 
 ```shell
 docker-compose run composer create-project
 ```
 
-## Run
+</details>
+
+<details>
+ <summary><h2 style="display: inline-block">Run</h2></summary>
 
 ```shell
 docker-compose up -d
@@ -144,10 +196,12 @@ PhpMyAdmin comes installed as a service in docker-compose.
 
 MailHog comes installed as a service in docker-compose.
 
-🚀 Open [http://127.0.0.1:8025/](http://127.0.0.1:8025/) in your browser
+🚀 Open [http://0.0.0.0:8025/](http://0.0.0.0:8025/) in your browser
 
+</details>
 
-## Tools
+<details>
+ <summary><h2 style="display: inline-block">Tools</h2></summary>
 
 ### Update WordPress Core and Composer packages (plugins/themes)
 
@@ -223,9 +277,10 @@ Rebuild docker container when Dockerfile has changed
 ```shell
 docker-compose up -d --force-recreate --build
 ```
+</details>
 
-
-### Changelog
+<details>
+ <summary><h2 style="display: inline-block">Changelog</h2></summary>
 
 #### 2020-10-04
 - Added mariadb-client (Solves [#54](https://github.com/urre/wordpress-nginx-docker-compose/issues/54))
@@ -254,4 +309,4 @@ docker-compose up -d --force-recreate --build
 #### 2019-08-02
 - Added Linux support. Thanks to [@faysal-ishtiaq](https://github.com/faysal-ishtiaq).
 
-***
+</details>

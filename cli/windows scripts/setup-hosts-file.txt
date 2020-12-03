@@ -1,3 +1,0 @@
-1. Open the file "C:\Windows\System32\drivers\etc\hosts" with text editor
-2. add the following line to the bottom
-	127.0.0.1 myapp.local
