@@ -7,13 +7,15 @@ services:
       - '80:80'
       - '443:443'
     volumes:
-      - ./nginx/default.conf:/tmp/default.template
+      - "./nginx/:/etc/nginx/templates/"
       - ./src:/var/www/html:rw,cached
       - ./certs:/etc/certs
+    environment:
+      NGINX_ENVSUBST_TEMPLATE_SUFFIX: ".conf"
+      DOMAIN: ${DOMAIN}
     depends_on:
       - wordpress
     restart: always
-    entrypoint: /bin/bash -c 'cat /tmp/default.template | sed "s/\\\$$domain/${DOMAIN}/g" > /etc/nginx/conf.d/default.conf && nginx -g "daemon off;"'
 
   mysql:
     image: mariadb
