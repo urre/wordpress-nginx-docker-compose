@@ -16,7 +16,4 @@ mkcert "${DOMAIN}"
 
 mkdir -p ../certs
 
-mv *.pem ../certs/
-mv *.pem ../certs/
-
-echo -e ${GREEN}"Cert created in /cert! ${NC}"
+find . -type f -name "*.pem" -exec mv {} ../certs \;
