@@ -71,7 +71,9 @@ Edit `./src/.env-example` to your needs. During the `composer create-project` co
 </details>
 
 <details>
- <summary>Create a SSL cert (Use HTTPS)</summary>
+ <summary>Use HTTPS</summary>
+
+Create a SSL cert:
 
 ```shell
 cd cli
