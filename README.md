@@ -282,6 +282,8 @@ docker-compose up -d --force-recreate --build
 <details>
  <summary>Changelog</summary>
 
+#### 2021-01-02
+- Use `NGINX_ENVSUBST_TEMPLATE_SUFFIX`. Use a template and better substution of ENV variables in nginx config.
 #### 2020-10-04
 - Added mariadb-client (Solves [#54](https://github.com/urre/wordpress-nginx-docker-compose/issues/54))
 #### 2020-09-15
