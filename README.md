@@ -34,7 +34,7 @@ Use WordPress locally with Docker using [Docker compose](https://docs.docker.com
 + [Docker](https://www.docker.com/get-started)
 + [mkcert](https://github.com/FiloSottile/mkcert) for creating the SSL cert.
 
-Install using:
+Install mkcert:
 
 ```
 brew install mkcert
@@ -49,7 +49,7 @@ brew install nss # if you use Firefox
  ### Setup Environment variables
  Easily set your own local domain, db settings and more. Start by creating `.env` files, like the examples below.
 
-#### For Docker and the cli scripts
+#### For Docker and the CLI script
 
 Copy `.env-example` in the project root to `.env` and edit your preferences.
 
@@ -71,7 +71,7 @@ Edit `./src/.env-example` to your needs. During the `composer create-project` co
 </details>
 
 <details>
- <summary>Use with SSL cert (HTTPS)</summary>
+ <summary>Create a SSL cert (Use HTTPS)</summary>
 
 ```shell
 cd cli
@@ -95,7 +95,7 @@ This script will create a locally-trusted development certificates. It requires 
 <details>
  <summary>Use without SSL</summary>
 
-1. Edit `nginx/default.conf`
+1. Edit `nginx/default.conf.conf` to use this simpler config.
 
 ```shell
 server {
@@ -152,7 +152,8 @@ WP_HOME='localhost'
 		...
 ```
 
-Open [http://127.0.0.1:8080/](http://127.0.0.1:8080/)
+3. Run using `docker-compose up`
+4. Open [http://127.0.0.1:8080/](http://127.0.0.1:8080/)
 
 
 </details>
