@@ -11,8 +11,8 @@ services:
       - ./src:/var/www/html:rw,cached
       - ./certs:/etc/certs
     environment:
-      - NGINX_ENVSUBST_TEMPLATE_SUFFIX=".conf"
-      - DOMAIN=${DOMAIN}
+      - "NGINX_ENVSUBST_TEMPLATE_SUFFIX=.conf"
+      - "DOMAIN=${DOMAIN}"
     depends_on:
       - wordpress
     restart: always
@@ -20,6 +20,7 @@ services:
   mysql:
     image: mariadb
     container_name: ${APP_NAME}-mysql
+    command: --lower_case_table_names=2
     volumes:
        - './data/db:/var/lib/mysql:delegated'
     environment:
