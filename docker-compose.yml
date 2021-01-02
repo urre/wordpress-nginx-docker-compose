@@ -11,8 +11,8 @@ services:
       - ./src:/var/www/html:rw,cached
       - ./certs:/etc/certs
     environment:
-      NGINX_ENVSUBST_TEMPLATE_SUFFIX: ".conf"
-      DOMAIN: ${DOMAIN}
+      - NGINX_ENVSUBST_TEMPLATE_SUFFIX=".conf"
+      - DOMAIN=${DOMAIN}
     depends_on:
       - wordpress
     restart: always
