@@ -21,10 +21,7 @@ Use WordPress locally with Docker using [Docker compose](https://docs.docker.com
 + [MailHog](https://github.com/mailhog/MailHog) - An email testing tool for developers. Configure your outgoing SMTP server and view your outgoing email in a web UI.
 + [PhpMyAdmin](https://www.phpmyadmin.net/) - free and open source administration tool for MySQL and MariaDB
 	- PhpMyAdmin config in `./config`
-+ CLI scripts
-	- Create a self signed SSL certificate for using HTTPS
-	- Trust certs in macOS System Keychain
-	- Setup the local domain in your in `/etc/hosts`
++ CLI script to create a SSL certificate
 
 ## Instructions
 
@@ -71,7 +68,7 @@ Edit `./src/.env-example` to your needs. During the `composer create-project` co
 </details>
 
 <details>
- <summary>Use HTTPS</summary>
+ <summary>1. Use HTTPS with a custom domain</summary>
 
 Create a SSL cert:
 
@@ -95,7 +92,7 @@ This script will create a locally-trusted development certificates. It requires 
 </details>
 
 <details>
- <summary>Use without SSL</summary>
+ <summary>2. Use a simple config</summary>
 
 1. Edit `nginx/default.conf.conf` to use this simpler config.
 
