@@ -122,6 +122,7 @@ server {
         fastcgi_param PATH_INFO $fastcgi_path_info;
     }
 }
+
 ```
 
 2. Edit the nginx service in `docker-compose.yml` to use port 80. 443 is not needed now.
@@ -138,21 +139,11 @@ server {
 3. Edit `./src/.env-example` and set
 
 ```
-WP_HOME='localhost'
-```
-
-3. Edit the phpmyadmin service in `docker-compose.yml` to use port 8080 instead of 80
-
-```
-  phpmyadmin:
-		...
-    ports:
-      - '8080:80'
-		...
+WP_HOME='http://localhost'
 ```
 
 3. Run using `docker-compose up`
-4. Open [http://127.0.0.1:8080/](http://127.0.0.1:8080/)
+4. Open [http://localhost/](http://localhost/)
 
 
 </details>
@@ -190,7 +181,7 @@ Starting myapp-mailhog    ... done
 
 PhpMyAdmin comes installed as a service in docker-compose.
 
-🚀 Open [http://127.0.0.1:8080/](http://127.0.0.1:8080/) in your browser
+🚀 Open [http://127.0.0.1:8082/](http://127.0.0.1:8082/) in your browser
 
 ## MailHog
 

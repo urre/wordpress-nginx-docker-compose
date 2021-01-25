@@ -52,7 +52,7 @@ services:
       PMA_PORT: 3306
       MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
     ports:
-      - '8080:80'
+      - '8082:80'
     links:
       - mysql:mysql
 
