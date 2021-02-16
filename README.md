@@ -64,7 +64,7 @@ DB_TABLE_PREFIX=wp_
 
 #### For WordPress
 
-Edit `./src/.env-example` to your needs. During the `composer create-project` command described below, an `./src/.env` will be created.
+Edit `./src/.env.example` to your needs. During the `composer create-project` command described below, an `./src/.env` will be created.
 </details>
 
 <details>
