@@ -68,7 +68,7 @@ Edit `./src/.env.example` to your needs. During the `composer create-project` co
 </details>
 
 <details>
- <summary>1. Use HTTPS with a custom domain</summary>
+ <summary>Option 1). Use HTTPS with a custom domain</summary>
 
 Create a SSL cert:
 
@@ -92,7 +92,7 @@ This script will create a locally-trusted development certificates. It requires 
 </details>
 
 <details>
- <summary>2. Use a simple config</summary>
+ <summary>Option 2). Use a simple config</summary>
 
 1. Edit `nginx/default.conf.conf` to use this simpler config.
 
