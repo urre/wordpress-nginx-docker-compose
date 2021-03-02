@@ -273,6 +273,8 @@ docker-compose up -d --force-recreate --build
 <details>
  <summary>Changelog</summary>
 
+#### 2021-03-02
+- Fixed a misstake so instead of `./src/.env-example`, it should be `./src/.env.example`.
 #### 2021-01-02
 - Use `NGINX_ENVSUBST_TEMPLATE_SUFFIX`. Use a template and better substution of ENV variables in nginx config.
 #### 2020-10-04
