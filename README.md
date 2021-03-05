@@ -44,9 +44,10 @@ brew install nss # if you use Firefox
  <summary>Setup</summary>
 
  ### Setup Environment variables
- Easily set your own local domain, db settings and more. Start by creating `.env` files, like the examples below.
 
-#### For Docker and the CLI script
+Both step 1. and 2. below are required:
+
+#### 1. For Docker and the CLI script (Required step)
 
 Copy `.env-example` in the project root to `.env` and edit your preferences.
 
@@ -62,9 +63,41 @@ DB_ROOT_PASSWORD=password
 DB_TABLE_PREFIX=wp_
 ```
 
-#### For WordPress
+#### 2. For WordPress (Required step)
 
 Edit `./src/.env.example` to your needs. During the `composer create-project` command described below, an `./src/.env` will be created.
+
+Example:
+
+```dotenv
+DB_NAME='myapp'
+DB_USER='root'
+DB_PASSWORD='password'
+
+# Optionally, you can use a data source name (DSN)
+# When using a DSN, you can remove the DB_NAME, DB_USER, DB_PASSWORD, and DB_HOST variables
+# DATABASE_URL='mysql://database_user:database_password@database_host:database_port/database_name'
+
+# Optional variables
+DB_HOST='mysql'
+# DB_PREFIX='wp_'
+
+WP_ENV='development'
+WP_HOME='https://myapp.local'
+WP_SITEURL="${WP_HOME}/wp"
+WP_DEBUG_LOG=/path/to/debug.log
+
+# Generate your keys here: https://roots.io/salts.html
+AUTH_KEY='generateme'
+SECURE_AUTH_KEY='generateme'
+LOGGED_IN_KEY='generateme'
+NONCE_KEY='generateme'
+AUTH_SALT='generateme'
+SECURE_AUTH_SALT='generateme'
+LOGGED_IN_SALT='generateme'
+NONCE_SALT='generateme'
+```
+
 </details>
 
 <details>
