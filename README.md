@@ -103,7 +103,7 @@ NONCE_SALT='generateme'
 <details>
  <summary>Option 1). Use HTTPS with a custom domain</summary>
 
-Create a SSL cert:
+1. Create a SSL cert:
 
 ```shell
 cd cli
@@ -123,6 +123,8 @@ This script will create a locally-trusted development certificates. It requires 
 [Follow the instructions](https://github.com/FiloSottile/mkcert#linux)
 
 </details>
+
+2. Continue on the Install step below
 
 <details>
  <summary>Option 2). Use a simple config</summary>
@@ -169,16 +171,7 @@ server {
 
 ```
 
-3. Edit `./src/.env.example` and set
-
-```
-WP_HOME='http://localhost'
-```
-
-3. Install using `docker-compose run composer create-project`
-3. Run using `docker-compose up`
-4. Open [http://localhost/](http://localhost/)
-
+3. Continue on the Install step below
 
 </details>
 
