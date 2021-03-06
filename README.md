@@ -122,9 +122,9 @@ This script will create a locally-trusted development certificates. It requires 
 
 [Follow the instructions](https://github.com/FiloSottile/mkcert#linux)
 
-</details>
-
 2. Continue on the Install step below
+
+</details>
 
 <details>
  <summary>Option 2). Use a simple config</summary>
