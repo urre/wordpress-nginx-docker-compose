@@ -169,12 +169,13 @@ server {
 
 ```
 
-3. Edit `./src/.env-example` and set
+3. Edit `./src/.env.example` and set
 
 ```
 WP_HOME='http://localhost'
 ```
 
+3. Install using `docker-compose run composer create-project`
 3. Run using `docker-compose up`
 4. Open [http://localhost/](http://localhost/)
 
@@ -306,6 +307,8 @@ docker-compose up -d --force-recreate --build
 <details>
  <summary>Changelog</summary>
 
+#### 2021-03-05
+- Clarify steps in the readme
 #### 2021-03-02
 - Fixed a misstake so instead of `./src/.env-example`, it should be `./src/.env.example`.
 - Redirect HTTP to HTTPS. Thanks [@humblecoder](https://github.com/humblecoder)
