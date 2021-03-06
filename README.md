@@ -110,17 +110,9 @@ cd cli
 ./create-cert.sh
 ```
 
-> Note: mkcert needs to be installed.
-
 This script will create a locally-trusted development certificates. It requires no configuration.
 
-### Windows
-
-[Follow the instructions](https://github.com/FiloSottile/mkcert#windows)
-
-### Linux
-
-[Follow the instructions](https://github.com/FiloSottile/mkcert#linux)
+> mkcert needs to be installed like described in Requirements. Read more for [Windows](https://github.com/FiloSottile/mkcert#windows) and [Linux](https://github.com/FiloSottile/mkcert#linux)
 
 2. Continue on the Install step below
 
@@ -129,7 +121,7 @@ This script will create a locally-trusted development certificates. It requires 
 <details>
  <summary>Option 2). Use a simple config</summary>
 
-1. Edit `nginx/default.conf.conf` to use this simpler config.
+1. Edit `nginx/default.conf.conf` to use this simpler config (without using a cert and HTTPS)
 
 ```shell
 server {
