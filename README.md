@@ -49,7 +49,7 @@ Both step 1. and 2. below are required:
 
 #### 1. For Docker and the CLI script (Required step)
 
-Copy `.env-example` in the project root to `.env` and edit your preferences.
+Copy `.env.example` in the project root to `.env` and edit your preferences.
 
 Example:
 
