@@ -114,6 +114,18 @@ This script will create a locally-trusted development certificates. It requires 
 
 > mkcert needs to be installed like described in Requirements. Read more for [Windows](https://github.com/FiloSottile/mkcert#windows) and [Linux](https://github.com/FiloSottile/mkcert#linux)
 
+1b. Make sure your `/etc/hosts` file has a record for used domains.
+
+```
+sudo nano /etc/hosts
+```
+
+Add your selected domain like this:
+
+```
+127.0.0.1 myapp.local
+```
+
 2. Continue on the Install step below
 
 </details>
