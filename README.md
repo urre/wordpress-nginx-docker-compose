@@ -304,6 +304,8 @@ docker-compose up -d --force-recreate --build
 <details>
  <summary>Changelog</summary>
 
+#### 2021-08-04
+- Updated to WordPress 5.8.0
 #### 2021-03-16
 - Changed root `.env-example` to `.env.example` to match the git ignore patterns. Thanks [@scottnunemacher](https://github.com/scottnunemacher)
 #### 2021-03-05
