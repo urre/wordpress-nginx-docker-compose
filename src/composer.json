@@ -38,7 +38,8 @@
     "roots/bedrock-autoloader": "^1.0",
     "roots/wordpress": "^5.8.0",
     "roots/wp-config": "1.0.0",
-    "roots/wp-password-bcrypt": "1.0.0"
+    "roots/wp-password-bcrypt": "1.0.0",
+    "wpackagist-plugin/advanced-custom-fields": "^5.10"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.5.6",
