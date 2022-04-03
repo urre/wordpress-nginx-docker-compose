@@ -41,3 +41,7 @@ bin
 
 # Custom
 .DS_Store
+
+# Idea
+.idea/*
+*.iml
