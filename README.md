@@ -10,7 +10,7 @@ Use WordPress locally with Docker using [Docker compose](https://docs.docker.com
 ## Contents
 
 + A `Dockerfile` for extending a base image and using a custom [Docker image](https://github.com/urre/wordpress-nginx-docker-compose-image) with an [automated build on Docker Hub](https://cloud.docker.com/repository/docker/urre/wordpress-nginx-docker-compose-image)
-+ PHP 7.4
++ PHP 8.0
 + Custom domain for example `myapp.local`
 + Custom nginx config in `./nginx`
 + Custom PHP `php.ini` config in `./config`
@@ -304,6 +304,8 @@ docker-compose up -d --force-recreate --build
 <details>
  <summary>Changelog</summary>
 
+#### 2022-05-28
+- Updated the Docker image to use PHP 8
 #### 2021-08-04
 - Updated to WordPress 5.8.0
 #### 2021-03-16
