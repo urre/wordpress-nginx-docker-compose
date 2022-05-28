@@ -36,10 +36,11 @@
     "vlucas/phpdotenv": "^4.1.8",
     "oscarotero/env": "^2.1",
     "roots/bedrock-autoloader": "^1.0",
-    "roots/wordpress": "^5.8.0",
+    "roots/wordpress": "^6.0.0",
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.0.0",
-    "wpackagist-plugin/advanced-custom-fields": "^5.10"
+    "wpackagist-plugin/advanced-custom-fields": "^5.10",
+    "wpackagist-theme/twentytwentyone": "^1.6"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.5.6",
@@ -47,7 +48,11 @@
   },
   "config": {
     "optimize-autoloader": true,
-    "preferred-install": "dist"
+    "preferred-install": "dist",
+    "allow-plugins": {
+      "composer/installers": true,
+      "roots/wordpress-core-installer": true
+    }
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
