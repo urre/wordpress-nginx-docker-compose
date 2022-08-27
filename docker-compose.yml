@@ -18,7 +18,7 @@ services:
     restart: always
 
   mysql:
-    image: mariadb
+    image: mariadb:10.7
     container_name: ${APP_NAME}-mysql
     command: --lower_case_table_names=2
     volumes:
