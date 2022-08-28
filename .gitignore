@@ -30,7 +30,7 @@ data
 node_modules
 
 # Certs
-certs/
+#certs/
 
 # Logs
 logs/
