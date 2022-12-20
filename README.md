@@ -114,7 +114,7 @@ This script will create a locally-trusted development certificates. It requires 
 
 > mkcert needs to be installed like described in Requirements. Read more for [Windows](https://github.com/FiloSottile/mkcert#windows) and [Linux](https://github.com/FiloSottile/mkcert#linux)
 
-1b. Make sure your `/etc/hosts` file has a record for used domains.
+1b. Make sure your `/etc/hosts` file has a record for used domains. On Windows the hosts file can be find at `C:\Windows\System32\drivers\etc`. Make sure to open it with admin rights.
 
 ```
 sudo nano /etc/hosts
