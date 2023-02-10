@@ -305,6 +305,8 @@ docker-compose up -d --force-recreate --build
  <summary>Changelog</summary>
 
 #### 2022-05-28
+- Use PHP 8.2. [Dockerfile](https://github.com/urre/wordpress-nginx-docker-compose-image/blob/master/Dockerfile) is updated.
+#### 2022-05-28
 - Use php:8.0-fpm-alpine as the base image on the image in Dockerfile [](https://hub.docker.com/repository/registry-1.docker.io/urre/wordpress-nginx-docker-compose-image/general)
 #### 2022-05-28
 - Updated the Docker image to use PHP 8
