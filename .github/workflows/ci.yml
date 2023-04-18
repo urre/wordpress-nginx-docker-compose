@@ -10,5 +10,6 @@ jobs:
       uses: actions/checkout@v1
 
     - name: Run composer install
+      working-directory: src
       run: |
         composer install --prefer-dist
