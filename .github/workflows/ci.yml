@@ -14,9 +14,9 @@ jobs:
       run: |
         composer install --prefer-dist
 
-    - name: Start containers
-      run: docker-compose -f "docker-compose.yml" up -d --build
+    # - name: Start containers
+    #   run: docker-compose -f "docker-compose.yml" up -d --build
 
-    - name: Stop containers
-      if: always()
-      run: docker-compose -f "docker-compose.yml" down
+    # - name: Stop containers
+    #   if: always()
+    #   run: docker-compose -f "docker-compose.yml" down
