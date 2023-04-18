@@ -1,7 +1,7 @@
 
 # Docker Compose and WordPress
 
-[![Build Status](https://travis-ci.org/urre/wordpress-nginx-docker-compose.svg?branch=master)](https://travis-ci.org/urre/wordpress-nginx-docker-compose)
+![](https://github.com/urre/wordpress-nginx-docker-compose/actions/workflows/ci.yml/badge.svg)
 
 [![Donate](https://img.shields.io/badge/Donation-green?logo=paypal&label=Paypal)](https://www.paypal.me/urbansanden)
 
