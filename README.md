@@ -1,7 +1,7 @@
 
 # Docker Compose and WordPress
 
-![https://github.com/urre/wordpress-nginx-docker-compose/actions/workflows/ci.yml](https://github.com/urre/wordpress-nginx-docker-compose/actions/workflows/ci.yml/badge.svg)
+[![CI](https://github.com/urre/wordpress-nginx-docker-compose/actions/workflows/ci.yml/badge.svg)](https://github.com/urre/wordpress-nginx-docker-compose/actions/workflows/ci.yml)
 
 [![Donate](https://img.shields.io/badge/Donation-green?logo=paypal&label=Paypal)](https://www.paypal.me/urbansanden)
 
@@ -304,6 +304,9 @@ docker-compose up -d --force-recreate --build
 <details>
  <summary>Changelog</summary>
 
+#### 2024-05-28
+- Update Composer to use PHP 8.1
+- Added a [GitHub Wiki for instructions](https://github.com/urre/wordpress-nginx-docker-compose/wiki)
 #### 2022-05-28
 - Use PHP 8.1 [Dockerfile](https://github.com/urre/wordpress-nginx-docker-compose-image/blob/master/Dockerfile) is updated.
 #### 2022-05-28
