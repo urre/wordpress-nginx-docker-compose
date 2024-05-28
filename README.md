@@ -1,7 +1,7 @@
 
 # Docker Compose and WordPress
 
-![](https://github.com/urre/wordpress-nginx-docker-compose/actions/workflows/ci.yml/badge.svg)
+![https://github.com/urre/wordpress-nginx-docker-compose/actions/workflows/ci.yml](https://github.com/urre/wordpress-nginx-docker-compose/actions/workflows/ci.yml/badge.svg)
 
 [![Donate](https://img.shields.io/badge/Donation-green?logo=paypal&label=Paypal)](https://www.paypal.me/urbansanden)
 
@@ -15,13 +15,13 @@ Use WordPress locally with Docker using [Docker compose](https://docs.docker.com
 + Custom nginx config in `./nginx`
 + Custom PHP `php.ini` config in `./config`
 + Volumes for `nginx`, `wordpress` and `mariadb`
++ [Composer](https://getcomposer.org/) - dependency manager for PHP
 + [Bedrock](https://roots.io/bedrock/) - modern development tools, easier configuration, and an improved secured folder structure for WordPress
-+ Composer
 + [WP-CLI](https://wp-cli.org/) - WP-CLI is the command-line interface for WordPress.
 + [MailHog](https://github.com/mailhog/MailHog) - An email testing tool for developers. Configure your outgoing SMTP server and view your outgoing email in a web UI.
 + [PhpMyAdmin](https://www.phpmyadmin.net/) - free and open source administration tool for MySQL and MariaDB
 	- PhpMyAdmin config in `./config`
-+ CLI script to create a SSL certificate
++ [CLI script](https://github.com/urre/wordpress-nginx-docker-compose#:~:text=6%20minutes%20ago-,cli,-Use%20%2Dinstall%20for) to create a SSL certificate using [mkcert](https://github.com/FiloSottile/mkcert)
 
 ## Instructions
 
