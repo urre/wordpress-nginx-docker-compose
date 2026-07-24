@@ -1,15 +1,47 @@
 name: CI Build
-on: [push]
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
 
 jobs:
   build:
-    name: Build
+    name: Build (PHP ${{ matrix.php-version }})
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version: ['8.1', '8.2', '8.3']
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v1
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Run composer install
-      working-directory: src
-      run: |
-        composer install --prefer-dist
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          tools: composer:v2
+          coverage: none
+
+      - name: Validate composer.json and composer.lock
+        working-directory: src
+        run: composer validate
+
+      - name: Cache Composer packages
+        uses: actions/cache@v4
+        with:
+          path: src/vendor
+          key: ${{ runner.os }}-php${{ matrix.php-version }}-${{ hashFiles('src/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php${{ matrix.php-version }}-
+
+      - name: Install dependencies
+        working-directory: src
+        run: composer install --prefer-dist --no-progress
+
+      - name: Run coding standards check (phpcs)
+        working-directory: src
+        run: composer test

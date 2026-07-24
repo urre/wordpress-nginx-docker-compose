@@ -18,7 +18,7 @@ Use WordPress locally with Docker using [Docker compose](https://docs.docker.com
 + [Composer](https://getcomposer.org/) - dependency manager for PHP
 + [Bedrock](https://roots.io/bedrock/) - modern development tools, easier configuration, and an improved secured folder structure for WordPress
 + [WP-CLI](https://wp-cli.org/) - WP-CLI is the command-line interface for WordPress.
-+ [MailHog](https://github.com/mailhog/MailHog) - An email testing tool for developers. Configure your outgoing SMTP server and view your outgoing email in a web UI.
++ [Mailpit](https://github.com/axllent/mailpit) - An email testing tool for developers. Catches all outgoing email and lets you view it in a web UI at [http://127.0.0.1:8025](http://127.0.0.1:8025).
 + [PhpMyAdmin](https://www.phpmyadmin.net/) - free and open source administration tool for MySQL and MariaDB
 	- PhpMyAdmin config in `./config`
 + [CLI script](https://github.com/urre/wordpress-nginx-docker-compose#:~:text=6%20minutes%20ago-,cli,-Use%20%2Dinstall%20for) to create a SSL certificate using [mkcert](https://github.com/FiloSottile/mkcert)
@@ -27,8 +27,21 @@ Use WordPress locally with Docker using [Docker compose](https://docs.docker.com
 
 See the new [Wiki](https://github.com/urre/wordpress-nginx-docker-compose/wiki)
 
+## Security
+
+Found a security issue? Please **don't** open a public issue — see
+[SECURITY.md](SECURITY.md) for how to report it privately. Note that this is a
+local development environment and is not intended to be exposed to the public
+internet or used in production as-is.
+
 ## Changelog
 
+#### 2026-07-24
+- Modernized the stack: dropped the obsolete Compose `version` key, pinned image tags, upgraded **MariaDB 10.7 → 11.4 LTS**, `nginx` → `1.27-alpine`, and `phpMyAdmin` → `5.2`.
+- Replaced the archived **MailHog** with the maintained **Mailpit** (same `8025`/`1025` ports).
+- Hardened nginx: TLS 1.2/1.3 only (dropped TLSv1/1.1), modern ciphers, `http2 on;` directive, and added security headers.
+- Modernized CI: `actions/checkout@v4`, a PHP 8.1–8.3 matrix, Composer caching, `composer validate`, and runs on pull requests.
+- Added `SECURITY.md`, `CLAUDE.md`, and an expanded `dependabot.yml` (Composer, Docker, GitHub Actions, npm).
 #### 2024-05-28
 - Update Composer to use PHP 8.1
 - Added a [GitHub Wiki for instructions](https://github.com/urre/wordpress-nginx-docker-compose/wiki)
