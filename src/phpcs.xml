@@ -8,9 +8,13 @@
   <!-- Scan only PHP files -->
   <arg name="extensions" value="php"/>
 
-  <!-- Ignore WordPress and Composer dependencies -->
+  <!-- Ignore WordPress core, Composer dependencies and third-party
+       (Composer-installed) plugins and themes. These are not our code and
+       do not follow this project's PSR-2 based standard. -->
   <exclude-pattern>web/wp</exclude-pattern>
   <exclude-pattern>vendor/</exclude-pattern>
+  <exclude-pattern>web/app/plugins/*</exclude-pattern>
+  <exclude-pattern>web/app/themes/twentytwentyone/*</exclude-pattern>
 
   <!-- Show colors in console -->
   <arg value="-colors"/>

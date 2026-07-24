@@ -1,7 +1,6 @@
-version: '3.6'
 services:
   nginx:
-    image: nginx:latest
+    image: nginx:1.27-alpine
     container_name: ${APP_NAME}-nginx
     ports:
       - '80:80'
@@ -18,7 +17,10 @@ services:
     restart: always
 
   mysql:
-    image: mariadb:10.7
+    # MariaDB 11.4 is the current Long Term Support release.
+    # Note: bumping the major version can require a fresh ./data/db volume
+    # (dump/import) if you are upgrading an existing local database.
+    image: mariadb:11.4
     container_name: ${APP_NAME}-mysql
     command: --lower_case_table_names=2
     volumes:
@@ -43,7 +45,7 @@ services:
     restart: always
 
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin
+    image: phpmyadmin:5.2
     container_name: ${APP_NAME}-phpmyadmin
     volumes:
       - ./config/phpmyadmin.ini:/usr/local/etc/php/conf.d/phpmyadmin.ini
@@ -53,18 +55,22 @@ services:
       MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
     ports:
       - '8082:80'
-    links:
-      - mysql:mysql
+    depends_on:
+      - mysql
 
-  mailhog:
-    container_name: ${APP_NAME}-mailhog
-    image: mailhog/mailhog
+  # Mailpit catches all outgoing email. Web UI: http://127.0.0.1:8025
+  # (Mailpit is the actively-maintained successor to the archived MailHog;
+  #  it keeps the same 8025 web / 1025 SMTP ports.)
+  mailpit:
+    container_name: ${APP_NAME}-mailpit
+    image: axllent/mailpit:latest
     ports:
       - "8025:8025"
       - "1025:1025"
+    restart: always
 
   composer:
-    image: composer
+    image: composer:latest
     container_name: ${APP_NAME}-composer
     working_dir: /var/www/html
     restart: 'no'
