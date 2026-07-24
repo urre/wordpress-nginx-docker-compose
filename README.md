@@ -10,7 +10,7 @@ Use WordPress locally with Docker using [Docker compose](https://docs.docker.com
 ## Contents
 
 + A `Dockerfile` for extending a base image and using a custom [Docker image](https://github.com/urre/wordpress-nginx-docker-compose-image) with an [automated build on Docker Hub](https://cloud.docker.com/repository/docker/urre/wordpress-nginx-docker-compose-image)
-+ PHP 8.1
++ PHP 8.3
 + Custom domain and HTTPS support. So you can use for example [https://myapp.local](https://myapp.local)
 + Custom nginx config in `./nginx`
 + Custom PHP `php.ini` config in `./config`
@@ -22,6 +22,22 @@ Use WordPress locally with Docker using [Docker compose](https://docs.docker.com
 + [PhpMyAdmin](https://www.phpmyadmin.net/) - free and open source administration tool for MySQL and MariaDB
 	- PhpMyAdmin config in `./config`
 + [CLI script](https://github.com/urre/wordpress-nginx-docker-compose#:~:text=6%20minutes%20ago-,cli,-Use%20%2Dinstall%20for) to create a SSL certificate using [mkcert](https://github.com/FiloSottile/mkcert)
+
+## Versions
+
+| Component    | Version                              |
+| ------------ | ------------------------------------ |
+| PHP          | 8.3 (PHP-FPM, via the custom base image) |
+| nginx        | 1.27-alpine                          |
+| MariaDB      | 11.4 LTS                             |
+| phpMyAdmin   | 5.2                                  |
+| Mailpit      | latest (`axllent/mailpit`)           |
+| Composer     | latest                               |
+| WP-CLI       | latest                               |
+| WordPress    | managed via Composer/Bedrock (`roots/wordpress`) |
+
+The custom base image is [multi-arch](https://github.com/urre/wordpress-nginx-docker-compose-image)
+(`linux/amd64` + `linux/arm64`), so it runs natively on both Intel and Apple Silicon.
 
 ## Instructions and help
 
@@ -42,6 +58,8 @@ internet or used in production as-is.
 - Hardened nginx: TLS 1.2/1.3 only (dropped TLSv1/1.1), modern ciphers, `http2 on;` directive, and added security headers.
 - Modernized CI: `actions/checkout@v4`, a PHP 8.1–8.3 matrix, Composer caching, `composer validate`, and runs on pull requests.
 - Added `SECURITY.md`, `CLAUDE.md`, and an expanded `dependabot.yml` (Composer, Docker, GitHub Actions, npm).
+- Upgraded **PHP 8.1 → 8.3** via a rebuilt, **multi-arch** base image (`linux/amd64` + `linux/arm64`), which runs natively on Apple Silicon (fixes the ARM emulation issue).
+- Bumped `composer/installers` to v2 (removes the PHP 8.1 deprecation notice).
 #### 2024-05-28
 - Update Composer to use PHP 8.1
 - Added a [GitHub Wiki for instructions](https://github.com/urre/wordpress-nginx-docker-compose/wiki)

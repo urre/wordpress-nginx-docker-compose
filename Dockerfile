@@ -1,4 +1,4 @@
-FROM urre/wordpress-nginx-docker-compose-image:1.4.0
+FROM urre/wordpress-nginx-docker-compose-image:1.5.0
 
 # Install wp-cli and dependencies (clean apt caches to keep the image small)
 RUN apt-get update \

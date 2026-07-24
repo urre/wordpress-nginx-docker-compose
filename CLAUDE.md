@@ -17,7 +17,7 @@ Services are defined in [`docker-compose.yml`](docker-compose.yml):
 | Service      | Image                                        | Purpose                                             |
 | ------------ | -------------------------------------------- | --------------------------------------------------- |
 | `nginx`      | `nginx:1.27-alpine`                          | TLS termination + reverse proxy to PHP-FPM          |
-| `wordpress`  | built from [`Dockerfile`](Dockerfile)        | PHP-FPM 8.1 + WP-CLI (custom base image)            |
+| `wordpress`  | built from [`Dockerfile`](Dockerfile)        | PHP-FPM 8.3 + WP-CLI (custom base image)            |
 | `mysql`      | `mariadb:11.4`                               | Database; data persisted in `./data/db`             |
 | `phpmyadmin` | `phpmyadmin:5.2`                             | DB admin UI at http://127.0.0.1:8082                |
 | `mailpit`    | `axllent/mailpit`                            | Catches outgoing mail; UI at http://127.0.0.1:8025  |
@@ -78,10 +78,11 @@ docker compose down
   value literally, so `DOMAIN='myapp.local'` produces an invalid cert path like
   `/etc/certs/'myapp.local'.pem`. Use `DOMAIN=myapp.local` (see issue #77).
 - **PHP version is set by the base image** `urre/wordpress-nginx-docker-compose-image`
-  (currently 8.1), not by the `Dockerfile` here. Bumping PHP means rebuilding
+  (currently 8.3), not by the `Dockerfile` here. Bumping PHP means rebuilding
   that separate image *and* raising the `php` constraint in `src/composer.json`.
-- **Apple Silicon / ARM:** the custom WordPress base image is `linux/amd64`
-  only, so it runs under emulation on ARM (slower; see issue #107).
+- **Apple Silicon / ARM:** the base image is now the official multi-arch
+  `php:8.3-fpm` (`linux/amd64` + `linux/arm64`), so it runs natively on ARM
+  (previously amd64-only under emulation; see issue #107).
 - **Never commit** `.env`, `src/.env`, `certs/`, `data/`, or `src/vendor/` —
   they are git-ignored for good reason (secrets, keys, local DB, dependencies).
 - **`src/` is Bedrock.** Follow Bedrock conventions: plugins/themes install to
