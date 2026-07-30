@@ -25,7 +25,7 @@
 		"postcss-calc": "^8.2.4",
 		"postcss-cli": "^10.1.0",
 		"postcss-css-variables": "^0.18.0",
-		"postcss-custom-media": "^9.1.1",
+		"postcss-custom-media": "^12.0.1",
 		"postcss-discard-duplicates": "^5.1.0",
 		"postcss-focus-within": "^10.0.1",
 		"postcss-merge-rules": "^5.1.3",
