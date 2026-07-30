@@ -29,7 +29,7 @@
 		"postcss-discard-duplicates": "^5.1.0",
 		"postcss-focus-within": "^10.0.1",
 		"postcss-merge-rules": "^5.1.3",
-		"postcss-nested": "^6.0.0",
+		"postcss-nested": "^8.0.0",
 		"rtlcss": "^4.0.0",
 		"sass": "^1.58.0",
 		"stylelint": "^13.13.1",
